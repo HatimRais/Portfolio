@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: "Outfit", system-ui, sans-serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --color-surface-dark: #030712;
+  --color-surface-light: #f8fafc;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100dvh;
+}
+
+::selection {
+  background: color-mix(in oklab, #7c3aed 35%, transparent);
+  color: inherit;
+}
+
+.dark ::selection {
+  background: color-mix(in oklab, #a78bfa 40%, transparent);
+}
