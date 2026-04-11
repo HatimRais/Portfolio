@@ -55,7 +55,9 @@ export function CommandPalette() {
     const kw = {
       home: ["home", "accueil", "hero", "debut"],
       about: ["about", "apropos", "moi", "bio"],
+      expertise: ["expertise", "domains", "specialisation", "specialization"],
       skills: ["skills", "competences", "stack", "tech"],
+      fullstack: ["fullstack", "web", "api", "architecture", "ingenierie"],
       projects: ["projects", "projets", "work", "portfolio"],
       "case-studies": ["case", "etudes", "cas", "learnhub"],
       metrics: ["metrics", "impact", "stats", "chiffres"],
@@ -78,7 +80,9 @@ export function CommandPalette() {
     return [
       nav("home", "home", "home"),
       nav("about", "about", "user"),
+      nav("expertise", "expertise", "target"),
       nav("skills", "skills", "code"),
+      nav("fullstack", "fullstack", "layout"),
       nav("projects", "projects", "folder"),
       nav("case-studies", "case-studies", "layers"),
       nav("metrics", "metrics", "chart"),
@@ -397,6 +401,12 @@ function CmdIcon({ name, className }) {
           <path strokeLinecap="round" strokeLinejoin="round" d="M4 7l8-4 8 4M4 12l8 4 8-4M4 17l8 4 8-4" />
         </svg>
       )
+    case "layout":
+      return (
+        <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M4 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM14 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM4 15a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1v-4zM14 15a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z" />
+        </svg>
+      )
     case "chart":
       return (
         <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -443,6 +453,13 @@ function CmdIcon({ name, className }) {
       return (
         <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+        </svg>
+      )
+    case "target":
+      return (
+        <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <circle cx="12" cy="12" r="3" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2M12 19v2M3 12h2M19 12h2" />
         </svg>
       )
     default:

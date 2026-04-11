@@ -5,7 +5,9 @@ import { Footer } from "./components/layout/Footer"
 import { CommandPalette } from "./components/layout/CommandPalette"
 import { Hero } from "./components/sections/Hero"
 import { About } from "./components/sections/About"
+import { MyExpertise } from "./components/sections/MyExpertise"
 import { Skills } from "./components/sections/Skills"
+import { FullstackSection } from "./components/sections/FullstackSection"
 import { Projects } from "./components/sections/Projects"
 import { CaseStudies } from "./components/sections/CaseStudies"
 import { Metrics } from "./components/sections/Metrics"
@@ -18,15 +20,17 @@ import { Contact } from "./components/sections/Contact"
 
 function App() {
   return (
-    <div className="relative min-h-dvh text-slate-900 dark:text-slate-100">
+    <div className="relative min-h-dvh overflow-x-clip text-slate-900 dark:text-slate-100">
       <GradientBackground />
       <FloatingParticles />
       <Navbar />
       <CommandPalette />
-      <main>
+      <main className="overflow-x-clip">
         <Hero />
         <About />
+        <MyExpertise />
         <Skills />
+        <FullstackSection />
         <Projects />
         <CaseStudies />
         <Metrics />

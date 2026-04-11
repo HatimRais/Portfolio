@@ -30,13 +30,13 @@ export function TypingText({ phrases, className = "" }) {
   }, [display, deleting, full, phrases.length, index])
 
   return (
-    <span className={`inline-flex items-baseline ${className}`}>
+    <span className={`inline-flex min-w-0 max-w-full items-baseline break-words ${className}`}>
       <AnimatePresence mode="wait">
         <motion.span
           key={index + display}
           initial={{ opacity: 0.85 }}
           animate={{ opacity: 1 }}
-          className="bg-gradient-to-r from-violet-600 via-fuchsia-500 to-cyan-500 bg-clip-text text-transparent dark:from-violet-400 dark:via-fuchsia-400 dark:to-cyan-400"
+          className="break-words bg-gradient-to-r from-violet-600 via-fuchsia-500 to-cyan-500 bg-clip-text text-transparent dark:from-violet-400 dark:via-fuchsia-400 dark:to-cyan-400"
         >
           {display}
         </motion.span>

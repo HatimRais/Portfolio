@@ -45,7 +45,7 @@ export function Metrics() {
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           <StatCard
-            value={7}
+            value={10}
             suffix="+"
             label={t.metrics.statProjects}
             icon={<ProjectsIcon />}

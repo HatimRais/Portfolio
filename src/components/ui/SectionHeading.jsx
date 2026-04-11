@@ -15,7 +15,7 @@ export function SectionHeading({ eyebrow, title, align = "center" }) {
       <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-violet-600 dark:text-violet-400">
         {eyebrow}
       </p>
-      <h2 className="font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-slate-900 dark:text-white md:text-4xl">
+      <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold tracking-tight text-slate-900 min-[400px]:text-3xl dark:text-white md:text-4xl">
         {title}
       </h2>
     </motion.div>

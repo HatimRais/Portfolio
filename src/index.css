@@ -11,16 +11,35 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+  -webkit-tap-highlight-color: transparent;
+  text-wrap: pretty;
+}
+
+@media (max-width: 24rem) {
+  body {
+    word-break: break-word;
+  }
 }
 
 #root {
   min-height: 100dvh;
+  overflow-x: clip;
+}
+
+@supports (padding: max(0px)) {
+  .safe-pb {
+    padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+  }
 }
 
 ::selection {

@@ -4,22 +4,26 @@ import { useLanguage } from "../../context/LanguageContext"
 import { useToast } from "../../context/ToastContext"
 import { GlassCard } from "../ui/GlassCard"
 import { SectionHeading } from "../ui/SectionHeading"
+import { SITE_EMAIL, SITE_GITHUB, SITE_LINKEDIN } from "../../constants/contact"
 
 const SOCIAL = [
   {
     name: "GitHub",
-    href: "https://github.com/HatimRais",
+    href: SITE_GITHUB,
     icon: GitHubIcon,
+    external: true,
   },
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/in/hatim-rais",
+    href: SITE_LINKEDIN,
     icon: LinkedInIcon,
+    external: true,
   },
   {
     name: "Email",
-    href: "mailto:raishatim8@gmail.com",
+    href: `mailto:${SITE_EMAIL}`,
     icon: MailIcon,
+    external: false,
   },
 ]
 
@@ -35,17 +39,18 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="scroll-mt-24 px-4 py-20 md:px-6 md:py-28">
-      <div className="mx-auto max-w-6xl">
+    <section id="contact" className="scroll-mt-24 px-3 py-16 sm:px-4 sm:py-20 md:px-6 md:py-28">
+      <div className="mx-auto min-w-0 max-w-6xl">
         <SectionHeading eyebrow={t.contact.subtitle} title={t.contact.title} />
 
-        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="grid min-w-0 gap-8 sm:gap-10 lg:grid-cols-[1.1fr_0.9fr]">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            className="min-w-0"
           >
-            <GlassCard className="p-8 md:p-10">
+            <GlassCard className="p-5 sm:p-8 md:p-10">
               <form onSubmit={onSubmit} className="space-y-5">
                 <div>
                   <label
@@ -61,7 +66,7 @@ export function Contact() {
                     value={form.name}
                     onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
                     placeholder={t.contact.placeholderName}
-                    className="w-full rounded-xl border border-slate-200/80 bg-white/80 px-4 py-3 text-slate-900 outline-none ring-violet-500/30 transition placeholder:text-slate-400 focus:border-violet-500 focus:ring-2 dark:border-white/10 dark:bg-slate-800/50 dark:text-white dark:placeholder:text-slate-500"
+                    className="w-full min-w-0 rounded-xl border border-slate-200/80 bg-white/80 px-4 py-3 text-base text-slate-900 outline-none ring-violet-500/30 transition placeholder:text-slate-400 focus:border-violet-500 focus:ring-2 sm:text-sm dark:border-white/10 dark:bg-slate-800/50 dark:text-white dark:placeholder:text-slate-500"
                   />
                 </div>
                 <div>
@@ -79,7 +84,7 @@ export function Contact() {
                     value={form.email}
                     onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
                     placeholder={t.contact.placeholderEmail}
-                    className="w-full rounded-xl border border-slate-200/80 bg-white/80 px-4 py-3 text-slate-900 outline-none ring-violet-500/30 transition placeholder:text-slate-400 focus:border-violet-500 focus:ring-2 dark:border-white/10 dark:bg-slate-800/50 dark:text-white dark:placeholder:text-slate-500"
+                    className="w-full min-w-0 rounded-xl border border-slate-200/80 bg-white/80 px-4 py-3 text-base text-slate-900 outline-none ring-violet-500/30 transition placeholder:text-slate-400 focus:border-violet-500 focus:ring-2 sm:text-sm dark:border-white/10 dark:bg-slate-800/50 dark:text-white dark:placeholder:text-slate-500"
                   />
                 </div>
                 <div>
@@ -97,14 +102,14 @@ export function Contact() {
                     value={form.message}
                     onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
                     placeholder={t.contact.placeholderMessage}
-                    className="w-full resize-y rounded-xl border border-slate-200/80 bg-white/80 px-4 py-3 text-slate-900 outline-none ring-violet-500/30 transition placeholder:text-slate-400 focus:border-violet-500 focus:ring-2 dark:border-white/10 dark:bg-slate-800/50 dark:text-white dark:placeholder:text-slate-500"
+                    className="w-full min-w-0 resize-y rounded-xl border border-slate-200/80 bg-white/80 px-4 py-3 text-base text-slate-900 outline-none ring-violet-500/30 transition placeholder:text-slate-400 focus:border-violet-500 focus:ring-2 sm:text-sm dark:border-white/10 dark:bg-slate-800/50 dark:text-white dark:placeholder:text-slate-500"
                   />
                 </div>
                 <motion.button
                   type="submit"
                   whileHover={{ scale: 1.01 }}
                   whileTap={{ scale: 0.99 }}
-                  className="w-full rounded-2xl bg-gradient-to-r from-violet-600 via-fuchsia-600 to-cyan-600 py-3.5 text-sm font-semibold text-white shadow-lg shadow-violet-500/30 dark:from-violet-500 dark:via-fuchsia-500 dark:to-cyan-500"
+                  className="min-h-11 w-full rounded-2xl bg-gradient-to-r from-violet-600 via-fuchsia-600 to-cyan-600 py-3.5 text-sm font-semibold text-white shadow-lg shadow-violet-500/30 dark:from-violet-500 dark:via-fuchsia-500 dark:to-cyan-500"
                 >
                   {t.contact.send}
                 </motion.button>
@@ -117,23 +122,24 @@ export function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.06 }}
-            className="flex flex-col gap-6"
+            className="flex min-w-0 flex-col gap-6"
           >
-            <GlassCard className="p-8 md:p-10">
+            <GlassCard className="p-5 sm:p-8 md:p-10">
               <h3 className="font-[family-name:var(--font-display)] text-lg font-bold text-slate-900 dark:text-white">
                 {t.contact.social}
               </h3>
-              <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
-                raishatim8@gmail.com
+              <p className="mt-2 break-words text-sm text-slate-600 dark:text-slate-400">
+                <a href={`mailto:${SITE_EMAIL}`} className="underline decoration-violet-500/40 underline-offset-2 hover:text-violet-700 dark:hover:text-violet-300">
+                  {SITE_EMAIL}
+                </a>
               </p>
               <ul className="mt-6 space-y-3">
                 {SOCIAL.map((s) => (
                   <li key={s.name}>
                     <a
                       href={s.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-3 rounded-xl border border-slate-200/60 bg-slate-50/50 px-4 py-3 text-sm font-medium text-slate-800 transition hover:border-violet-400/50 hover:bg-white dark:border-white/10 dark:bg-slate-800/40 dark:text-slate-100 dark:hover:border-violet-400/35"
+                      {...(s.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                      className="flex min-h-11 min-w-0 items-center gap-3 rounded-xl border border-slate-200/60 bg-slate-50/50 px-4 py-3 text-sm font-medium text-slate-800 transition hover:border-violet-400/50 hover:bg-white active:bg-violet-500/5 dark:border-white/10 dark:bg-slate-800/40 dark:text-slate-100 dark:hover:border-violet-400/35"
                     >
                       <s.icon className="h-5 w-5 text-violet-600 dark:text-violet-400" />
                       {s.name}

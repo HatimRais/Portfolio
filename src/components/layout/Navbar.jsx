@@ -1,80 +1,154 @@
-import { useState } from "react"
+import { useCallback, useEffect, useRef, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useLanguage } from "../../context/LanguageContext"
 import { useTheme } from "../../context/ThemeContext"
 
-const links = [
-  { id: "home", key: "home" },
+const profileLinks = [
   { id: "about", key: "about" },
+  { id: "expertise", key: "expertise" },
   { id: "skills", key: "skills" },
-  { id: "projects", key: "projects" },
+  { id: "fullstack", key: "fullstack" },
+]
+
+const moreLinks = [
   { id: "case-studies", key: "caseStudies" },
   { id: "metrics", key: "metrics" },
   { id: "how-i-work", key: "howIWork" },
   { id: "engineering", key: "engineering" },
   { id: "learning", key: "learning" },
-  { id: "ai", key: "ai" },
-  { id: "ai-action", key: "aiAction" },
-  { id: "contact", key: "contact" },
 ]
 
 export function Navbar() {
   const { t, lang, setLang } = useLanguage()
   const { theme, toggleTheme } = useTheme()
-  const [open, setOpen] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const [mobileGroup, setMobileGroup] = useState(null)
+  const [openDropdown, setOpenDropdown] = useState(null)
+  const navRef = useRef(null)
 
-  const scrollTo = (id) => {
-    setOpen(false)
-    const el = document.getElementById(id)
-    el?.scrollIntoView({ behavior: "smooth", block: "start" })
+  const scrollTo = useCallback((id) => {
+    setMobileOpen(false)
+    setMobileGroup(null)
+    setOpenDropdown(null)
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" })
+  }, [])
+
+  useEffect(() => {
+    const onDoc = (e) => {
+      if (openDropdown && navRef.current && !navRef.current.contains(e.target)) setOpenDropdown(null)
+    }
+    document.addEventListener("mousedown", onDoc)
+    return () => document.removeEventListener("mousedown", onDoc)
+  }, [openDropdown])
+
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === "Escape") {
+        setOpenDropdown(null)
+        setMobileOpen(false)
+      }
+    }
+    window.addEventListener("keydown", onKey)
+    return () => window.removeEventListener("keydown", onKey)
+  }, [])
+
+  useEffect(() => {
+    if (!mobileOpen) return
+    const prev = document.body.style.overflow
+    document.body.style.overflow = "hidden"
+    return () => {
+      document.body.style.overflow = prev
+    }
+  }, [mobileOpen])
+
+  const topLinkClass =
+    "inline-flex shrink-0 items-center gap-0.5 rounded-lg px-2 py-2 text-[11px] font-medium text-slate-600 transition hover:bg-violet-500/10 hover:text-violet-700 dark:text-slate-300 dark:hover:bg-violet-500/15 dark:hover:text-violet-300 lg:px-2.5 lg:text-xs"
+
+  const toggleDropdown = (id) => {
+    setOpenDropdown((cur) => (cur === id ? null : id))
   }
-
-  const linkClass =
-    "shrink-0 rounded-lg px-2 py-2 text-[11px] font-medium text-slate-600 transition hover:bg-violet-500/10 hover:text-violet-700 dark:text-slate-300 dark:hover:bg-violet-500/15 dark:hover:text-violet-300 lg:px-2.5 lg:text-xs"
 
   return (
     <motion.header
       initial={{ y: -24, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.45 }}
-      className="fixed left-0 right-0 top-0 z-50 px-4 pt-4 md:px-6"
+      className="fixed left-0 right-0 top-0 z-50 px-3 pt-[max(0.75rem,env(safe-area-inset-top))] sm:px-4 sm:pt-4 md:px-6"
     >
       <nav
-        className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 rounded-2xl border border-slate-200/70 bg-white/75 px-3 py-3 shadow-lg shadow-violet-500/5 backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/70 dark:shadow-violet-500/10 md:flex-nowrap md:px-4"
+        ref={navRef}
+        className="mx-auto flex min-w-0 max-w-6xl flex-nowrap items-center justify-between gap-2 rounded-2xl border border-slate-200/70 bg-white/75 px-2 py-2.5 shadow-lg shadow-violet-500/5 backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/70 dark:shadow-violet-500/10 sm:gap-3 sm:px-3 sm:py-3 md:px-4"
         aria-label="Main"
       >
         <button
           type="button"
           onClick={() => scrollTo("home")}
-          className="shrink-0 font-[family-name:var(--font-display)] text-lg font-bold tracking-tight text-slate-900 dark:text-white"
+          className="min-w-0 shrink font-[family-name:var(--font-display)] text-base font-bold tracking-tight text-slate-900 sm:text-lg dark:text-white"
         >
           <span className="bg-gradient-to-r from-violet-600 to-cyan-600 bg-clip-text text-transparent dark:from-violet-400 dark:to-cyan-400">
             Hatim Rais
           </span>
         </button>
 
-        <ul
-          className="hidden max-h-[2.75rem] min-w-0 flex-1 list-none flex-row flex-wrap justify-center gap-x-0.5 gap-y-0 overflow-hidden md:flex lg:max-h-none lg:flex-nowrap lg:justify-end lg:overflow-x-auto lg:[scrollbar-width:none] lg:[&::-webkit-scrollbar]:hidden"
-        >
-          {links.map(({ id, key }) => (
-            <li key={id} className="shrink-0">
-              <button type="button" onClick={() => scrollTo(id)} className={linkClass}>
-                {t.nav[key]}
-              </button>
-            </li>
-          ))}
+        <ul className="hidden list-none flex-row flex-wrap items-center justify-end gap-x-0.5 md:flex lg:flex-nowrap">
+          <li className="shrink-0">
+            <button type="button" onClick={() => scrollTo("home")} className={topLinkClass}>
+              {t.nav.home}
+            </button>
+          </li>
+          <li className="relative shrink-0">
+            <button
+              type="button"
+              className={`${topLinkClass} ${openDropdown === "profile" ? "bg-violet-500/10 text-violet-700 dark:text-violet-300" : ""}`}
+              aria-expanded={openDropdown === "profile"}
+              aria-haspopup="true"
+              onClick={() => toggleDropdown("profile")}
+            >
+              {t.nav.menuProfile}
+              <Chevron className={`h-3.5 w-3.5 opacity-60 transition ${openDropdown === "profile" ? "rotate-180" : ""}`} />
+            </button>
+            <DropdownPanel open={openDropdown === "profile"} items={profileLinks} t={t} onPick={scrollTo} />
+          </li>
+          <li className="shrink-0">
+            <button type="button" onClick={() => scrollTo("projects")} className={topLinkClass}>
+              {t.nav.projects}
+            </button>
+          </li>
+          <li className="relative shrink-0">
+            <button
+              type="button"
+              className={`${topLinkClass} ${openDropdown === "more" ? "bg-violet-500/10 text-violet-700 dark:text-violet-300" : ""}`}
+              aria-expanded={openDropdown === "more"}
+              aria-haspopup="true"
+              onClick={() => toggleDropdown("more")}
+            >
+              {t.nav.menuMore}
+              <Chevron className={`h-3.5 w-3.5 opacity-60 transition ${openDropdown === "more" ? "rotate-180" : ""}`} />
+            </button>
+            <DropdownPanel open={openDropdown === "more"} items={moreLinks} t={t} onPick={scrollTo} />
+          </li>
+          <li className="shrink-0">
+            <button type="button" onClick={() => scrollTo("ai")} className={topLinkClass}>
+              {t.nav.ai}
+            </button>
+          </li>
+          <li className="shrink-0">
+            <button type="button" onClick={() => scrollTo("contact")} className={topLinkClass}>
+              {t.nav.contact}
+            </button>
+          </li>
         </ul>
 
-        <div className="flex shrink-0 items-center gap-2">
+        <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
           <div
-            className="flex rounded-xl border border-slate-200/80 bg-slate-100/80 p-0.5 dark:border-white/10 dark:bg-slate-800/80"
+            className="flex shrink-0 rounded-lg border border-slate-200/80 bg-slate-100/80 p-0.5 sm:rounded-xl dark:border-white/10 dark:bg-slate-800/80"
             role="group"
             aria-label="Language"
           >
             <button
               type="button"
               onClick={() => setLang("en")}
-              className={`rounded-lg px-2.5 py-1 text-xs font-semibold transition ${
+              className={`rounded-md px-2 py-1 text-[11px] font-semibold transition sm:rounded-lg sm:px-2.5 sm:text-xs ${
                 lang === "en"
                   ? "bg-white text-violet-700 shadow-sm dark:bg-slate-700 dark:text-violet-300"
                   : "text-slate-500 dark:text-slate-400"
@@ -85,7 +159,7 @@ export function Navbar() {
             <button
               type="button"
               onClick={() => setLang("fr")}
-              className={`rounded-lg px-2.5 py-1 text-xs font-semibold transition ${
+              className={`rounded-md px-2 py-1 text-[11px] font-semibold transition sm:rounded-lg sm:px-2.5 sm:text-xs ${
                 lang === "fr"
                   ? "bg-white text-violet-700 shadow-sm dark:bg-slate-700 dark:text-violet-300"
                   : "text-slate-500 dark:text-slate-400"
@@ -98,7 +172,7 @@ export function Navbar() {
           <button
             type="button"
             onClick={toggleTheme}
-            className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200/80 bg-slate-100/80 text-slate-700 transition hover:border-violet-400/50 hover:text-violet-700 dark:border-white/10 dark:bg-slate-800/80 dark:text-slate-200 dark:hover:text-violet-300"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-slate-200/80 bg-slate-100/80 text-slate-700 transition hover:border-violet-400/50 hover:text-violet-700 sm:h-10 sm:w-10 sm:rounded-xl dark:border-white/10 dark:bg-slate-800/80 dark:text-slate-200 dark:hover:text-violet-300"
             aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
           >
             {theme === "dark" ? (
@@ -110,21 +184,21 @@ export function Navbar() {
 
           <button
             type="button"
-            className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200/80 bg-slate-100/80 md:hidden dark:border-white/10 dark:bg-slate-800/80"
-            onClick={() => setOpen((o) => !o)}
-            aria-expanded={open}
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-slate-200/80 bg-slate-100/80 md:hidden sm:h-10 sm:w-10 sm:rounded-xl dark:border-white/10 dark:bg-slate-800/80"
+            onClick={() => setMobileOpen((o) => !o)}
+            aria-expanded={mobileOpen}
             aria-label="Menu"
           >
             <span className="sr-only">Menu</span>
             <div className="flex w-5 flex-col gap-1">
               <span
-                className={`h-0.5 rounded-full bg-slate-700 transition dark:bg-slate-200 ${open ? "translate-y-1.5 rotate-45" : ""}`}
+                className={`h-0.5 rounded-full bg-slate-700 transition dark:bg-slate-200 ${mobileOpen ? "translate-y-1.5 rotate-45" : ""}`}
               />
               <span
-                className={`h-0.5 rounded-full bg-slate-700 transition dark:bg-slate-200 ${open ? "opacity-0" : ""}`}
+                className={`h-0.5 rounded-full bg-slate-700 transition dark:bg-slate-200 ${mobileOpen ? "opacity-0" : ""}`}
               />
               <span
-                className={`h-0.5 rounded-full bg-slate-700 transition dark:bg-slate-200 ${open ? "-translate-y-1.5 -rotate-45" : ""}`}
+                className={`h-0.5 rounded-full bg-slate-700 transition dark:bg-slate-200 ${mobileOpen ? "-translate-y-1.5 -rotate-45" : ""}`}
               />
             </div>
           </button>
@@ -132,20 +206,154 @@ export function Navbar() {
       </nav>
 
       <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[45] bg-slate-950/50 backdrop-blur-[2px] md:hidden"
+            aria-hidden
+            onClick={() => setMobileOpen(false)}
+          />
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ type: "spring", stiffness: 420, damping: 32 }}
+            className="fixed left-3 right-3 z-[55] max-h-[min(calc(100dvh-5.25rem-env(safe-area-inset-top)-env(safe-area-inset-bottom)),82vh)] overflow-y-auto overscroll-contain rounded-2xl border border-slate-200/80 bg-white/98 shadow-2xl dark:border-white/10 dark:bg-slate-950/98 md:hidden"
+            style={{ top: "max(4.75rem, calc(env(safe-area-inset-top) + 3.75rem))" }}
+            role="dialog"
+            aria-modal="true"
+            aria-label={t.nav.mobileMenuTitle}
+          >
+            <div className="safe-pb p-2 sm:p-3">
+              <button
+                type="button"
+                onClick={() => scrollTo("home")}
+                className="w-full rounded-xl px-4 py-3 text-left text-sm font-medium text-slate-700 hover:bg-violet-500/10 dark:text-slate-200"
+              >
+                {t.nav.home}
+              </button>
+
+              <MobileGroup
+                title={t.nav.menuProfile}
+                open={mobileGroup === "profile"}
+                onToggle={() => setMobileGroup((g) => (g === "profile" ? null : "profile"))}
+                links={profileLinks}
+                t={t}
+                onPick={scrollTo}
+              />
+              <button
+                type="button"
+                onClick={() => scrollTo("projects")}
+                className="w-full rounded-xl px-4 py-3 text-left text-sm font-medium text-slate-700 hover:bg-violet-500/10 dark:text-slate-200"
+              >
+                {t.nav.projects}
+              </button>
+              <MobileGroup
+                title={t.nav.menuMore}
+                open={mobileGroup === "more"}
+                onToggle={() => setMobileGroup((g) => (g === "more" ? null : "more"))}
+                links={moreLinks}
+                t={t}
+                onPick={scrollTo}
+              />
+              <button
+                type="button"
+                onClick={() => scrollTo("ai")}
+                className="w-full rounded-xl px-4 py-3 text-left text-sm font-medium text-slate-700 hover:bg-violet-500/10 dark:text-slate-200"
+              >
+                {t.nav.ai}
+              </button>
+              <p className="px-4 pb-1 pt-2 text-[10px] uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                {t.nav.mobileAiHint}
+              </p>
+              <button
+                type="button"
+                onClick={() => scrollTo("ai-action")}
+                className="w-full rounded-xl px-4 py-2.5 pl-8 text-left text-sm text-slate-600 hover:bg-violet-500/10 dark:text-slate-300"
+              >
+                {t.nav.aiAction}
+              </button>
+              <button
+                type="button"
+                onClick={() => scrollTo("contact")}
+                className="w-full rounded-xl px-4 py-3 text-left text-sm font-medium text-slate-700 hover:bg-violet-500/10 dark:text-slate-200"
+              >
+                {t.nav.contact}
+              </button>
+              <p className="border-t border-slate-200/80 px-4 py-3 text-xs text-slate-500 dark:border-white/10 dark:text-slate-400">
+                {t.nav.paletteHint}
+              </p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.header>
+  )
+}
+
+function DropdownPanel({ open, items, t, onPick }) {
+  return (
+    <AnimatePresence>
+      {open && (
+        <motion.div
+          initial={{ opacity: 0, y: -6 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -6 }}
+          transition={{ duration: 0.15 }}
+          className="absolute left-0 top-full z-[60] mt-1 min-w-[12.5rem] rounded-xl border border-slate-200/90 bg-white/95 py-1 shadow-xl backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/95"
+          role="menu"
+        >
+          {items.map(({ id, key }) => (
+            <button
+              key={id}
+              type="button"
+              role="menuitem"
+              className="block w-full px-3 py-2 text-left text-xs font-medium text-slate-700 hover:bg-violet-500/10 dark:text-slate-200"
+              onClick={() => onPick(id)}
+            >
+              {t.nav[key]}
+            </button>
+          ))}
+        </motion.div>
+      )}
+    </AnimatePresence>
+  )
+}
+
+function MobileGroup({ title, open, onToggle, links, t, onPick }) {
+  return (
+    <div className="border-t border-slate-200/60 dark:border-white/10">
+      <button
+        type="button"
+        onClick={onToggle}
+        className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-left text-sm font-medium text-slate-700 hover:bg-violet-500/10 dark:text-slate-200"
+        aria-expanded={open}
+      >
+        {title}
+        <Chevron className={`h-4 w-4 shrink-0 opacity-50 transition ${open ? "rotate-180" : ""}`} />
+      </button>
+      <AnimatePresence initial={false}>
         {open && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="mx-auto mt-2 max-h-[70vh] max-w-6xl overflow-y-auto md:hidden"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            className="overflow-hidden"
           >
-            <ul className="rounded-2xl border border-slate-200/70 bg-white/90 p-3 shadow-xl backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/90">
+            <ul className="space-y-0.5 pb-2 pl-2">
               {links.map(({ id, key }) => (
                 <li key={id}>
                   <button
                     type="button"
-                    onClick={() => scrollTo(id)}
-                    className="w-full rounded-xl px-4 py-3 text-left text-sm font-medium text-slate-700 hover:bg-violet-500/10 dark:text-slate-200"
+                    onClick={() => onPick(id)}
+                    className="w-full rounded-lg px-6 py-2.5 text-left text-sm text-slate-600 hover:bg-violet-500/10 dark:text-slate-300"
                   >
                     {t.nav[key]}
                   </button>
@@ -155,7 +363,15 @@ export function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
+    </div>
+  )
+}
+
+function Chevron({ className }) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+    </svg>
   )
 }
 

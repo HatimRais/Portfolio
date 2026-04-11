@@ -1,119 +1,144 @@
-import { useMemo, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import { projects } from "../../data/projects"
+import { PROJECT_FILTER_EVENT } from "../../constants/portfolioEvents"
 import { useLanguage } from "../../context/LanguageContext"
-import { GlassCard } from "../ui/GlassCard"
 import { SectionHeading } from "../ui/SectionHeading"
+import { FullstackProjectCard } from "../projects/FullstackProjectCard"
+import { AIProjectCard } from "../projects/AIProjectCard"
 
-const filters = [
-  { key: "filterAll", cat: "all" },
-  { key: "filterFullstack", cat: "fullstack" },
-  { key: "filterBackend", cat: "backend" },
-  { key: "filterEcommerce", cat: "ecommerce" },
-  { key: "filterMobile", cat: "mobile" },
-  { key: "filterWeb", cat: "web" },
+const DOMAIN_FILTERS = [
+  { key: "filterAll", domain: "all" },
+  { key: "filterFullstack", domain: "fullstack" },
+  { key: "filterAi", domain: "ai" },
 ]
 
 export function Projects() {
   const { t, lang } = useLanguage()
-  const [active, setActive] = useState("all")
+  const [activeDomain, setActiveDomain] = useState("all")
+
+  useEffect(() => {
+    const onFilter = (e) => {
+      const d = e.detail?.domain
+      if (d === "fullstack" || d === "ai" || d === "all") setActiveDomain(d)
+    }
+    window.addEventListener(PROJECT_FILTER_EVENT, onFilter)
+    return () => window.removeEventListener(PROJECT_FILTER_EVENT, onFilter)
+  }, [])
 
   const filtered = useMemo(
-    () => (active === "all" ? projects : projects.filter((p) => p.category === active)),
-    [active],
+    () => (activeDomain === "all" ? projects : projects.filter((p) => p.domain === activeDomain)),
+    [activeDomain],
   )
 
+  const cat = (key) => (key && t.projects.categories?.[key] ? t.projects.categories[key] : null)
+
   return (
-    <section id="projects" className="scroll-mt-24 px-4 py-20 md:px-6 md:py-28">
-      <div className="mx-auto max-w-6xl">
+    <section id="projects" className="scroll-mt-24 px-3 py-16 sm:px-4 sm:py-20 md:px-6 md:py-28">
+      <div className="mx-auto min-w-0 max-w-6xl">
         <SectionHeading eyebrow={t.projects.subtitle} title={t.projects.title} />
 
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-10 flex flex-wrap justify-center gap-2"
+          className="mb-8 flex flex-wrap justify-center gap-1.5 px-0.5 sm:mb-10 sm:gap-2"
         >
-          {filters.map(({ key, cat }) => (
-            <button
-              key={cat}
-              type="button"
-              onClick={() => setActive(cat)}
-              className={`rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-wider transition ${
-                active === cat
-                  ? "border-transparent bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white shadow-lg shadow-violet-500/30 dark:from-violet-500 dark:to-fuchsia-500"
-                  : "border-slate-300/80 bg-white/50 text-slate-600 hover:border-violet-400/50 dark:border-white/10 dark:bg-slate-900/40 dark:text-slate-300"
-              }`}
-            >
-              {t.projects[key]}
-            </button>
-          ))}
+          {DOMAIN_FILTERS.map(({ key, domain }) => {
+            const isActive = activeDomain === domain
+            const fullstackActive =
+              isActive && domain === "fullstack"
+                ? "border-transparent bg-gradient-to-r from-cyan-600 to-emerald-600 text-white shadow-lg shadow-cyan-500/30 dark:from-cyan-500 dark:to-emerald-500"
+                : ""
+            const aiActive =
+              isActive && domain === "ai"
+                ? "border-transparent bg-gradient-to-r from-violet-600 to-indigo-600 text-white shadow-lg shadow-violet-500/35 dark:from-violet-500 dark:to-indigo-600"
+                : ""
+            const allActive =
+              isActive && domain === "all"
+                ? "border-transparent bg-gradient-to-r from-slate-700 to-slate-600 text-white shadow-lg dark:from-slate-600 dark:to-slate-500"
+                : ""
+            const activeClass = fullstackActive || aiActive || allActive
+            return (
+              <button
+                key={domain}
+                type="button"
+                onClick={() => setActiveDomain(domain)}
+                className={`rounded-full border px-3 py-2 text-[10px] font-semibold uppercase tracking-wide transition min-[400px]:px-4 min-[400px]:text-xs min-[400px]:tracking-wider ${
+                  activeClass ||
+                  "border-slate-300/80 bg-white/50 text-slate-600 hover:border-cyan-400/40 dark:border-white/10 dark:bg-slate-900/40 dark:text-slate-300 dark:hover:border-violet-400/40"
+                }`}
+              >
+                {t.projects[key]}
+              </button>
+            )
+          })}
         </motion.div>
 
         <motion.div layout className="grid gap-8 md:grid-cols-2">
           <AnimatePresence mode="popLayout">
-            {filtered.map((p) => (
-              <motion.div
-                key={p.id}
-                layout
-                initial={{ opacity: 0, scale: 0.96 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.96 }}
-                transition={{ type: "spring", stiffness: 350, damping: 28 }}
-                whileHover={{ y: -6, scale: 1.02 }}
-              >
-                <GlassCard className="group relative h-full overflow-hidden p-6 transition duration-300 md:p-8 md:hover:shadow-[0_0_48px_-12px_rgba(139,92,246,0.4)]">
-                  <div className="pointer-events-none absolute -right-8 -top-8 h-36 w-36 rounded-full bg-violet-500/10 blur-3xl transition duration-500 group-hover:scale-110 group-hover:bg-violet-500/25 dark:bg-violet-500/15" />
-                  <h3 className="font-[family-name:var(--font-display)] text-xl font-bold text-slate-900 dark:text-white">
-                    {lang === "fr" ? p.titleFr : p.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-                    {lang === "fr" ? p.descriptionFr : p.description}
-                  </p>
-                  <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-violet-600 dark:text-violet-400">
-                    {t.projects.stack}
-                  </p>
-                  <div className="mt-2 flex flex-wrap gap-2">
-                    {p.stack.map((tech) => (
-                      <span
-                        key={tech}
-                        className="rounded-lg border border-slate-200/80 bg-slate-50/80 px-2.5 py-1 text-xs font-medium text-slate-700 dark:border-white/10 dark:bg-slate-800/60 dark:text-slate-300"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="mt-6 flex flex-wrap gap-3">
-                    <motion.a
-                      href={p.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="inline-flex items-center justify-center rounded-xl border border-slate-300/80 bg-white/70 px-4 py-2.5 text-sm font-semibold text-slate-800 transition hover:border-violet-400/60 hover:text-violet-700 dark:border-white/15 dark:bg-slate-800/50 dark:text-slate-100 dark:hover:border-violet-400/40"
-                    >
-                      {t.projects.github}
-                    </motion.a>
-                    {p.demo ? (
-                      <motion.a
-                        href={p.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-violet-600 to-cyan-600 px-4 py-2.5 text-sm font-semibold text-white shadow-md shadow-violet-500/25 dark:from-violet-500 dark:to-cyan-500"
-                      >
-                        {t.projects.demo}
-                      </motion.a>
-                    ) : (
-                      <span className="inline-flex cursor-not-allowed items-center rounded-xl border border-dashed border-slate-300/80 px-4 py-2.5 text-sm text-slate-400 dark:border-white/15 dark:text-slate-500">
-                        {t.projects.demo}
-                      </span>
-                    )}
-                  </div>
-                </GlassCard>
-              </motion.div>
-            ))}
+            {filtered.map((p) => {
+              const title = lang === "fr" ? p.titleFr : p.title
+              const description = lang === "fr" ? p.descriptionFr : p.description
+              const categoryLabel = p.categoryKey ? cat(p.categoryKey) : null
+              const metrics =
+                p.metrics?.map((m) => ({
+                  label: lang === "fr" ? m.labelFr : m.label,
+                  value: m.value,
+                })) ?? []
+              const tags =
+                p.resultTags?.map((tag) => ({
+                  label: lang === "fr" ? tag.labelFr : tag.label,
+                })) ?? []
+
+              return (
+                <motion.div
+                  key={p.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.96 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.96 }}
+                  transition={{ type: "spring", stiffness: 380, damping: 28 }}
+                  whileHover={{ y: -5 }}
+                >
+                  {p.domain === "ai" ? (
+                    <AIProjectCard
+                      title={title}
+                      description={description}
+                      stack={p.stack}
+                      github={p.github}
+                      demo={p.demo}
+                      internalDemoId={p.internalDemoId}
+                      metrics={metrics}
+                      resultTags={tags}
+                      categoryLabel={categoryLabel}
+                      stackLabel={t.projects.stack}
+                      githubLabel={t.projects.github}
+                      demoLabel={t.projects.demo}
+                      tryDemoLabel={t.projects.tryDemo}
+                      keyMetricsLabel={t.projects.keyMetrics}
+                    />
+                  ) : (
+                    <FullstackProjectCard
+                      title={title}
+                      description={description}
+                      stack={p.stack}
+                      github={p.github}
+                      demo={p.demo}
+                      internalDemoId={p.internalDemoId}
+                      previewFrom={p.previewFrom}
+                      previewTo={p.previewTo}
+                      categoryLabel={categoryLabel}
+                      stackLabel={t.projects.stack}
+                      githubLabel={t.projects.github}
+                      demoLabel={t.projects.demo}
+                      tryDemoLabel={t.projects.tryDemo}
+                      uiPreviewLabel={t.projects.uiPreview}
+                    />
+                  )}
+                </motion.div>
+              )
+            })}
           </AnimatePresence>
         </motion.div>
       </div>
