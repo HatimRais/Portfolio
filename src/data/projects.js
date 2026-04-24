@@ -10,42 +10,10 @@ export const projects = [
     descriptionFr:
       "Application web e-learning fullstack avec espaces admin, formateur et étudiant et gestion complète des cours.",
     stack: ["Laravel", "React", "MySQL", "REST API"],
-    github: "https://github.com/818MF",
+    github: "https://github.com/HatimRais",
     demo: null,
     previewFrom: "from-cyan-500/30",
     previewTo: "to-emerald-600/25",
-  },
-  {
-    id: "elearning-2",
-    title: "E-learning Platform",
-    titleFr: "Plateforme e-learning",
-    domain: "fullstack",
-    categoryKey: "elearning",
-    description:
-      "Second e-learning system with improved architecture, UX focus, and scalability for growing content and users.",
-    descriptionFr:
-      "Deuxième plateforme e-learning avec architecture renforcée, UX soignée et scalabilité.",
-    stack: ["Laravel", "React", "MySQL"],
-    github: "https://github.com/818MF",
-    demo: null,
-    previewFrom: "from-teal-500/25",
-    previewTo: "to-cyan-500/30",
-  },
-  {
-    id: "infounder-blog",
-    title: "INFOUNDER Blog Website",
-    titleFr: "Site blog INFOUNDER",
-    domain: "fullstack",
-    categoryKey: "blog",
-    description:
-      "Professional company blog developed during internship to present services and insights.",
-    descriptionFr:
-      "Blog professionnel développé en stage pour présenter les services de l’entreprise.",
-    stack: ["Laravel", "HTML/CSS", "JavaScript"],
-    github: "https://github.com/818MF",
-    demo: null,
-    previewFrom: "from-emerald-500/20",
-    previewTo: "to-cyan-500/25",
   },
   {
     id: "perfume-shop",
@@ -58,8 +26,8 @@ export const projects = [
     descriptionFr:
       "Plateforme e-commerce avancée : catalogue, panier, commandes et UI/UX soignée.",
     stack: ["Laravel", "React", "MySQL", "Tailwind CSS"],
-    github: "https://github.com/818MF",
-    demo: null,
+    github: "https://github.com/HatimRais",
+    demo: "https://perfume-dupes-production.up.railway.app/",
     previewFrom: "from-cyan-400/25",
     previewTo: "to-green-500/20",
   },
@@ -74,7 +42,7 @@ export const projects = [
     descriptionFr:
       "Application mobile d’administration pour la gestion du e-commerce parfumerie.",
     stack: ["Flutter", "REST API"],
-    github: "https://github.com/818MF",
+    github: "https://github.com/HatimRais",
     demo: null,
     previewFrom: "from-emerald-500/30",
     previewTo: "to-teal-600/20",
@@ -90,8 +58,8 @@ export const projects = [
     descriptionFr:
       "Site vitrine pour un atelier créatif : services et mise en page orientée design.",
     stack: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
-    github: "https://github.com/818MF",
-    demo: null,
+    github: "https://github.com/HatimRais",
+    demo: "https://atelier-resine.netlify.app/",
     previewFrom: "from-green-500/15",
     previewTo: "to-cyan-500/25",
   },
@@ -106,8 +74,8 @@ export const projects = [
     descriptionFr:
       "Site spa professionnel : prestations et interface orientée réservation.",
     stack: ["React", "Tailwind CSS", "Node.js"],
-    github: "https://github.com/818MF",
-    demo: null,
+    github: "https://github.com/HatimRais",
+    demo: "https://www.moonspa-marrakech.com/",
     previewFrom: "from-cyan-500/35",
     previewTo: "to-emerald-500/15",
   },
@@ -122,8 +90,8 @@ export const projects = [
     descriptionFr:
       "API REST en Node.js pour la recommandation de films, avec RabbitMQ pour la messagerie asynchrone entre services et Docker pour un déploiement conteneurisé reproductible.",
     stack: ["Node.js", "REST API", "RabbitMQ", "Docker"],
-    github: "https://github.com/818MF",
-    demo: null,
+    github: "https://github.com/HatimRais",
+    demo: "https://movie-library-rust-zeta.vercel.app/",
     previewFrom: "from-teal-500/30",
     previewTo: "to-slate-600/20",
   },
@@ -138,7 +106,7 @@ export const projects = [
     descriptionFr:
       "Classifieur heuristique interactif dans ce portfolio : score par jetons, confiance et UX pour un triage explicable—base pour brancher un vrai modèle ML.",
     stack: ["JavaScript", "Heuristics", "UX"],
-    github: "https://github.com/818MF",
+    github: "https://github.com/HatimRais",
     demo: null,
     internalDemoId: "ai-action",
     metrics: [
@@ -162,7 +130,7 @@ export const projects = [
     descriptionFr:
       "Workflow d’analyse exploratoire : nettoyage avec Pandas, agrégations, métriques type cohorte et graphiques pour stock et promotions.",
     stack: ["Python", "Pandas", "NumPy", "Matplotlib"],
-    github: "https://github.com/818MF",
+    github: "https://github.com/HatimRais",
     demo: null,
     metrics: [
       { label: "Rows cleaned", labelFr: "Lignes nettoyées", value: "12k+" },
@@ -173,5 +141,71 @@ export const projects = [
       { label: "Trend detection", labelFr: "Détection de tendances" },
       { label: "Exportable charts", labelFr: "Graphiques exportables" },
     ],
+  },
+  {
+    id: "sweet-delights",
+    title: "Sweet Delights Pastry Shop",
+    titleFr: "Sweet Delights Patisserie",
+    domain: "fullstack",
+    categoryKey: "web",
+    description:
+      "Multilingual Next.js showcase website for a pastry shop with FR/EN/AR localization, menu presentation, and SEO-ready page structure.",
+    descriptionFr:
+      "Site vitrine Next.js multilingue pour une patisserie avec localisation FR/EN/AR, presentation du menu et structure SEO prete.",
+    stack: ["Next.js", "React", "JavaScript", "i18n", "SEO"],
+    github: "https://github.com/HatimRais",
+    demo: "https://pastry-shop-omega.vercel.app/",
+    previewFrom: "from-rose-400/25",
+    previewTo: "to-amber-500/20",
+  },
+  {
+    id: "sicam-caftan-ai",
+    title: "SICAM Caftan AI Pipeline",
+    titleFr: "Pipeline IA SICAM Caftan",
+    domain: "ai",
+    categoryKey: "analytics",
+    description:
+      "Computer vision data pipeline for caftan style analysis including automated image scraping, labeling workflow with Google Sheets, and deep learning experimentation.",
+    descriptionFr:
+      "Pipeline de donnees vision par ordinateur pour l analyse de style caftan: scraping automatique d images, etiquetage via Google Sheets et experimentation deep learning.",
+    stack: ["Python", "Selenium", "OpenCV", "TensorFlow", "Pandas"],
+    github: "https://github.com/HatimRais",
+    demo: null,
+    metrics: [
+      { label: "Image collection", labelFr: "Collecte d images", value: "Automated" },
+      { label: "Focus", labelFr: "Cible", value: "Computer vision" },
+      { label: "Workflow", labelFr: "Workflow", value: "Scrape + label" },
+    ],
+    resultTags: [
+      { label: "Dataset pipeline", labelFr: "Pipeline dataset" },
+      { label: "Label tracking", labelFr: "Suivi des labels" },
+    ],
+    previewFrom: "from-violet-500/25",
+    previewTo: "to-indigo-500/20",
+  },
+  {
+    id: "sommeil-eog-ia",
+    title: "Sommeil EOG IA",
+    titleFr: "Sommeil EOG IA",
+    domain: "ai",
+    categoryKey: "analytics",
+    description:
+      "Sleep stage classification pipeline from EOG signals with CNN/Bi-LSTM and CNN-only variants, OpenVINO optimization, and a Streamlit clinical dashboard.",
+    descriptionFr:
+      "Pipeline de classification des stades du sommeil a partir du signal EOG avec variantes CNN/Bi-LSTM et CNN pur, optimisation OpenVINO et dashboard clinique Streamlit.",
+    stack: ["Python", "TensorFlow", "OpenVINO", "Streamlit", "MNE"],
+    github: "https://github.com/HatimRais",
+    demo: "https://deepsleepai.streamlit.app/",
+    metrics: [
+      { label: "Sleep stages", labelFr: "Stades du sommeil", value: "5" },
+      { label: "Best accuracy", labelFr: "Meilleure accuracy", value: "91.6%" },
+      { label: "NPU throughput", labelFr: "Debit NPU", value: "5650 ep/s" },
+    ],
+    resultTags: [
+      { label: "Clinical dashboard", labelFr: "Dashboard clinique" },
+      { label: "Hardware optimization", labelFr: "Optimisation materielle" },
+    ],
+    previewFrom: "from-blue-500/30",
+    previewTo: "to-cyan-500/20",
   },
 ]
