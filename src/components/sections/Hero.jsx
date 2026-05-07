@@ -28,10 +28,19 @@ export function Hero() {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
   }
 
-  const onCvClick = (e) => {
+  const onCvClick = async (e) => {
     e.preventDefault()
-    showToast(t.toast.cv)
-    window.open("/cv.pdf", "_blank", "noopener,noreferrer")
+    try {
+      const res = await fetch("/cv.pdf", { method: "HEAD" })
+      if (!res.ok) {
+        showToast(t.toast.cvMissing)
+        return
+      }
+      showToast(t.toast.cv)
+      window.open("/cv.pdf", "_blank", "noopener,noreferrer")
+    } catch {
+      showToast(t.toast.cvMissing)
+    }
   }
 
   return (

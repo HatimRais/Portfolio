@@ -299,7 +299,8 @@ export const translations = {
     },
     toast: {
       sent: "Message sent — I’ll get back to you soon!",
-      cv: "Add your CV file as public/cv.pdf to enable download.",
+      cv: "Opening CV — your download should start shortly.",
+      cvMissing: "CV file not found. Please try again later.",
     },
   },
   fr: {
@@ -602,7 +603,8 @@ export const translations = {
     },
     toast: {
       sent: "Message envoyé — je vous réponds bientôt !",
-      cv: "Ajoutez votre CV sous public/cv.pdf pour activer le téléchargement.",
+      cv: "Ouverture du CV — le téléchargement va démarrer.",
+      cvMissing: "CV introuvable. Veuillez réessayer plus tard.",
     },
   },
 }
