@@ -184,6 +184,22 @@ export const projects = [
     previewTo: "to-indigo-500/20",
   },
   {
+    id: "sicam-labeling-platform",
+    title: "SICAM Labeling Platform",
+    titleFr: "SICAM Labeling Platform",
+    domain: "fullstack",
+    categoryKey: "web",
+    description:
+      "Full-stack collaborative labeling platform for Moroccan traditional clothing datasets: Tinder-style annotation, consensus voting, Admin / Moderator / Annotator roles, gamified badges, FR / EN / AR (RTL), analytics dashboard, and dataset export—with Laravel 11, React + Vite, MySQL, and Cloudinary.",
+    descriptionFr:
+      "Plateforme fullstack d’annotation collaborative pour des datasets de vêtements traditionnels marocains : flux type Tinder, vote par consensus, rôles Admin / Modérateur / Annotateur, badges gamifiés, interface FR / EN / AR (RTL), tableau de bord analytique et export de données—Laravel 11, React + Vite, MySQL et Cloudinary.",
+    stack: ["Laravel", "React", "Vite", "MySQL", "Tailwind CSS", "Cloudinary"],
+    github: "https://github.com/HatimRais",
+    demo: "https://sicam-labeling-platform.vercel.app/login",
+    previewFrom: "from-amber-500/25",
+    previewTo: "to-orange-600/20",
+  },
+  {
     id: "sommeil-eog-ia",
     title: "Sommeil EOG IA",
     titleFr: "Sommeil EOG IA",
