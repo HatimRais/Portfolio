@@ -35,7 +35,7 @@ function highlightMatch(text, query) {
   return (
     <>
       {before}
-      <mark className="rounded bg-violet-500/25 px-0.5 text-inherit dark:bg-violet-400/20">{match}</mark>
+      <mark className="rounded bg-brand/25 px-0.5 text-inherit dark:bg-brand-light/20">{match}</mark>
       {after}
     </>
   )
@@ -199,14 +199,14 @@ export function CommandPalette() {
         onMouseEnter={() => setSelected(indexInFiltered)}
         className={`flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left text-sm font-medium transition ${
           isActive
-            ? "bg-gradient-to-r from-violet-500/20 to-cyan-500/10 text-slate-900 ring-1 ring-violet-500/40 dark:text-white dark:ring-violet-400/35"
-            : "text-slate-700 hover:bg-violet-500/10 dark:text-slate-200 dark:hover:bg-violet-500/10"
+            ? "bg-gradient-to-r from-brand/20 to-brand-light/10 text-slate-900 ring-1 ring-brand/40 dark:text-white dark:ring-brand-light/35"
+            : "text-slate-700 hover:bg-brand/10 dark:text-slate-200 dark:hover:bg-brand/10"
         }`}
       >
         <span
           className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border ${
             isActive
-              ? "border-violet-500/40 bg-violet-500/15 text-violet-700 dark:text-violet-300"
+              ? "border-brand/40 bg-brand/15 text-brand dark:text-brand-light"
               : "border-slate-200/80 bg-slate-100/80 text-slate-500 dark:border-white/10 dark:bg-slate-800/80 dark:text-slate-400"
           }`}
         >
@@ -242,15 +242,15 @@ export function CommandPalette() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: -8 }}
             transition={{ type: "spring", stiffness: 400, damping: 30 }}
-            className="relative w-full max-w-xl overflow-hidden rounded-2xl border border-violet-500/20 bg-white/95 shadow-[0_0_0_1px_rgba(139,92,246,0.08),0_24px_80px_-20px_rgba(91,33,182,0.45)] dark:border-violet-400/15 dark:bg-slate-950/95 dark:shadow-[0_0_0_1px_rgba(167,139,250,0.12),0_24px_80px_-20px_rgba(0,0,0,0.65)]"
+            className="relative w-full max-w-xl overflow-hidden rounded-2xl border border-brand/20 bg-white/95 shadow-[0_0_0_1px_rgba(139,92,246,0.08),0_24px_80px_-20px_rgba(91,33,182,0.45)] dark:border-brand-light/15 dark:bg-slate-950/95 dark:shadow-[0_0_0_1px_rgba(167,139,250,0.12),0_24px_80px_-20px_rgba(0,0,0,0.65)]"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-violet-400/60 to-transparent dark:via-violet-400/40" />
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-light/60 to-transparent dark:via-brand-light/40" />
 
             <div className="border-b border-slate-200/90 px-4 pb-3 pt-4 dark:border-white/10">
               <div className="flex items-start justify-between gap-3">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-violet-600 dark:text-violet-400">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand dark:text-brand-light">
                     {t.commandPalette.title}
                   </p>
                   <p className="mt-0.5 text-sm text-slate-600 dark:text-slate-400">{t.commandPalette.subtitle}</p>
@@ -279,7 +279,7 @@ export function CommandPalette() {
                     }
                   }}
                   placeholder={t.commandPalette.searchPlaceholder}
-                  className="w-full rounded-xl border border-slate-200/90 bg-slate-50/90 py-2.5 pl-10 pr-3 text-sm text-slate-900 outline-none ring-violet-500/20 transition placeholder:text-slate-400 focus:border-violet-500/50 focus:ring-2 dark:border-white/10 dark:bg-slate-900/60 dark:text-white dark:placeholder:text-slate-500"
+                  className="w-full rounded-xl border border-slate-200/90 bg-slate-50/90 py-2.5 pl-10 pr-3 text-sm text-slate-900 outline-none ring-brand/20 transition placeholder:text-slate-400 focus:border-brand/50 focus:ring-2 dark:border-white/10 dark:bg-slate-900/60 dark:text-white dark:placeholder:text-slate-500"
                   autoComplete="off"
                   autoCorrect="off"
                   spellCheck={false}

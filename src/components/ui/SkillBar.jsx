@@ -8,15 +8,15 @@ export function SkillBar({ name, level }) {
   return (
     <div ref={ref} className="space-y-1.5">
       <div className="flex justify-between text-sm">
-        <span className="font-medium text-slate-700 dark:text-slate-200">{name}</span>
-        <span className="tabular-nums text-slate-500 dark:text-slate-400">{level}%</span>
+        <span className="font-medium text-ink/80 dark:text-paper/85">{name}</span>
+        <span className="tabular-nums text-ink/50 dark:text-paper/50">{level}%</span>
       </div>
-      <div className="h-2 overflow-hidden rounded-full bg-slate-200/80 dark:bg-slate-800/80">
+      <div className="h-1.5 overflow-hidden rounded-sm bg-mist dark:bg-white/10">
         <motion.div
-          className="h-full rounded-full bg-gradient-to-r from-violet-500 via-fuchsia-500 to-cyan-500 shadow-[0_0_12px_rgba(139,92,246,0.45)]"
+          className="h-full rounded-sm bg-brand dark:bg-brand-light"
           initial={{ width: 0 }}
           animate={inView ? { width: `${level}%` } : { width: 0 }}
-          transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         />
       </div>
     </div>

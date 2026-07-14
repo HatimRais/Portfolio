@@ -39,7 +39,7 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="scroll-mt-24 px-3 py-16 sm:px-4 sm:py-20 md:px-6 md:py-28">
+    <section id="contact" className="section-anchor px-3 py-16 sm:px-4 sm:py-20 md:px-6 md:py-28">
       <div className="mx-auto min-w-0 max-w-6xl">
         <SectionHeading eyebrow={t.contact.subtitle} title={t.contact.title} />
 
@@ -66,7 +66,7 @@ export function Contact() {
                     value={form.name}
                     onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
                     placeholder={t.contact.placeholderName}
-                    className="w-full min-w-0 rounded-xl border border-slate-200/80 bg-white/80 px-4 py-3 text-base text-slate-900 outline-none ring-violet-500/30 transition placeholder:text-slate-400 focus:border-violet-500 focus:ring-2 sm:text-sm dark:border-white/10 dark:bg-slate-800/50 dark:text-white dark:placeholder:text-slate-500"
+                    className="w-full min-w-0 rounded-xl border border-slate-200/80 bg-white/80 px-4 py-3 text-base text-slate-900 outline-none ring-brand/30 transition placeholder:text-slate-400 focus:border-brand focus:ring-2 sm:text-sm dark:border-white/10 dark:bg-slate-800/50 dark:text-white dark:placeholder:text-slate-500"
                   />
                 </div>
                 <div>
@@ -84,7 +84,7 @@ export function Contact() {
                     value={form.email}
                     onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
                     placeholder={t.contact.placeholderEmail}
-                    className="w-full min-w-0 rounded-xl border border-slate-200/80 bg-white/80 px-4 py-3 text-base text-slate-900 outline-none ring-violet-500/30 transition placeholder:text-slate-400 focus:border-violet-500 focus:ring-2 sm:text-sm dark:border-white/10 dark:bg-slate-800/50 dark:text-white dark:placeholder:text-slate-500"
+                    className="w-full min-w-0 rounded-xl border border-slate-200/80 bg-white/80 px-4 py-3 text-base text-slate-900 outline-none ring-brand/30 transition placeholder:text-slate-400 focus:border-brand focus:ring-2 sm:text-sm dark:border-white/10 dark:bg-slate-800/50 dark:text-white dark:placeholder:text-slate-500"
                   />
                 </div>
                 <div>
@@ -102,14 +102,14 @@ export function Contact() {
                     value={form.message}
                     onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
                     placeholder={t.contact.placeholderMessage}
-                    className="w-full min-w-0 resize-y rounded-xl border border-slate-200/80 bg-white/80 px-4 py-3 text-base text-slate-900 outline-none ring-violet-500/30 transition placeholder:text-slate-400 focus:border-violet-500 focus:ring-2 sm:text-sm dark:border-white/10 dark:bg-slate-800/50 dark:text-white dark:placeholder:text-slate-500"
+                    className="w-full min-w-0 resize-y rounded-xl border border-slate-200/80 bg-white/80 px-4 py-3 text-base text-slate-900 outline-none ring-brand/30 transition placeholder:text-slate-400 focus:border-brand focus:ring-2 sm:text-sm dark:border-white/10 dark:bg-slate-800/50 dark:text-white dark:placeholder:text-slate-500"
                   />
                 </div>
                 <motion.button
                   type="submit"
                   whileHover={{ scale: 1.01 }}
                   whileTap={{ scale: 0.99 }}
-                  className="min-h-11 w-full rounded-2xl bg-gradient-to-r from-violet-600 via-fuchsia-600 to-cyan-600 py-3.5 text-sm font-semibold text-white shadow-lg shadow-violet-500/30 dark:from-violet-500 dark:via-fuchsia-500 dark:to-cyan-500"
+                  className="min-h-11 w-full rounded-2xl bg-gradient-to-r from-brand via-ochre to-brand-light py-3.5 text-sm font-semibold text-white shadow-lg shadow-brand/30 dark:from-brand-light dark:via-ochre dark:to-brand"
                 >
                   {t.contact.send}
                 </motion.button>
@@ -129,7 +129,7 @@ export function Contact() {
                 {t.contact.social}
               </h3>
               <p className="mt-2 break-words text-sm text-slate-600 dark:text-slate-400">
-                <a href={`mailto:${SITE_EMAIL}`} className="underline decoration-violet-500/40 underline-offset-2 hover:text-violet-700 dark:hover:text-violet-300">
+                <a href={`mailto:${SITE_EMAIL}`} className="underline decoration-brand/40 underline-offset-2 hover:text-brand dark:hover:text-brand-light">
                   {SITE_EMAIL}
                 </a>
               </p>
@@ -139,9 +139,9 @@ export function Contact() {
                     <a
                       href={s.href}
                       {...(s.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                      className="flex min-h-11 min-w-0 items-center gap-3 rounded-xl border border-slate-200/60 bg-slate-50/50 px-4 py-3 text-sm font-medium text-slate-800 transition hover:border-violet-400/50 hover:bg-white active:bg-violet-500/5 dark:border-white/10 dark:bg-slate-800/40 dark:text-slate-100 dark:hover:border-violet-400/35"
+                      className="flex min-h-11 min-w-0 items-center gap-3 rounded-xl border border-slate-200/60 bg-slate-50/50 px-4 py-3 text-sm font-medium text-slate-800 transition hover:border-brand-light/50 hover:bg-white active:bg-brand/5 dark:border-white/10 dark:bg-slate-800/40 dark:text-slate-100 dark:hover:border-brand-light/35"
                     >
-                      <s.icon className="h-5 w-5 text-violet-600 dark:text-violet-400" />
+                      <s.icon className="h-5 w-5 text-brand dark:text-brand-light" />
                       {s.name}
                     </a>
                   </li>

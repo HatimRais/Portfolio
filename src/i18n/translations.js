@@ -23,10 +23,10 @@ export const translations = {
     },
     hero: {
       greeting: "Hello, I'm",
-      title: "AI & Fullstack Developer",
-      subtitle: "Master’s Student",
+      title: "AI Junior | Full-Stack Developer",
+      subtitle: "Licence d’Excellence in AI — FSBM",
       tagline:
-        "I build intelligent web applications by combining fullstack development and artificial intelligence.",
+        "I build intelligent products at the intersection of machine learning and fullstack engineering — open to collaborative projects.",
       ctaProjects: "View Projects",
       ctaCv: "Download CV",
       scroll: "Scroll",
@@ -35,14 +35,17 @@ export const translations = {
       title: "About Me",
       subtitle: "Background & focus",
       p1:
-        "I am a passionate developer specializing in fullstack web development and artificial intelligence. I hold a Specialized Technician Diploma in Digital Development (Fullstack Web) from OFPPT and I am currently pursuing a Master’s level in AI.",
+        "I hold a Licence d’Excellence in Artificial Intelligence from the Faculty of Sciences Ben M’Sik (FSBM, Casablanca) — July 2026, Mention Bien — and a Specialized Technician Diploma in Digital Development (Fullstack Web) from OFPPT. My coursework covered ML, DL, data mining, NLP, signal & image processing, data analysis, Python, Oracle, and UML.",
       p2:
-        "I have worked on multiple real-world projects including e-learning platforms, e-commerce systems, and business websites. I also completed an internship at INFOUNDER where I developed a professional blog platform.",
+        "This year I delivered DeepSleep AI (1st prize — best deep learning project at licence level, FSBM), the SICAM computer-vision PFE pipeline, and the SICAM labeling platform. I also freelanced successful e-commerce websites and interned at INFOUNDER. My digital identity here is to collaborate — available for joint projects.",
       edu: "Education",
-      edu1: "Master’s level — Artificial Intelligence (in progress)",
+      edu1:
+        "Licence d’Excellence — Artificial Intelligence, FSBM Casablanca (Jul 2026, Mention Bien)",
       edu2: "Specialized Technician Diploma — Digital Development (Fullstack Web), OFPPT",
       exp: "Experience",
-      exp1: "Internship — INFOUNDER: professional blog platform development",
+      exp1: "1st prize — best deep learning project at licence level (FSBM)",
+      exp2: "Freelance — successful e-commerce website deliveries",
+      exp3: "Internship — INFOUNDER: professional blog platform (React, Laravel, MySQL)",
     },
     expertise: {
       title: "My expertise",
@@ -58,8 +61,8 @@ export const translations = {
       ai: {
         title: "Artificial Intelligence",
         description:
-          "Data workflows and ML foundations—from Python tooling and exploratory analysis to evaluation-minded prototypes you can ship beside production code.",
-        tech: "Python · Pandas · NumPy · Jupyter · scikit-learn · Matplotlib",
+          "Intermediate ML/DL practice: data collection & cleaning, model training and evaluation, NLP, web scraping, and deployable demos with Python ecosystems.",
+        tech: "Python · scikit-learn · TensorFlow · OpenVINO · Pandas · NumPy · OpenCV · Streamlit",
       },
     },
     fullstackSection: {
@@ -120,15 +123,15 @@ export const translations = {
     },
     aiSection: {
       title: "AI & Data",
-      subtitle: "Machine learning & analytics",
+      subtitle: "Machine learning & applied AI",
       lead:
-        "I combine software engineering with data science fundamentals: Python ecosystems, exploratory analysis, and ML basics to support smarter products.",
-      ml: "Machine learning",
-      mlDesc: "Foundations for classification, regression, and model evaluation.",
-      data: "Data analysis",
-      dataDesc: "Pandas & NumPy for cleaning, aggregating, and interpreting datasets.",
+        "Intermediate ML/DL workflows: scraping and cleaning, training and testing models, NLP, and production-minded demos with Python, scikit-learn, TensorFlow, OpenVINO, Jupyter, Colab, Kaggle, Hugging Face, and Streamlit.",
+      ml: "Machine learning & deep learning",
+      mlDesc: "Training, evaluation, and iteration on classifiers for vision, signals, and tabular data.",
+      data: "Data pipelines",
+      dataDesc: "Scraping, cleaning, labeling workflows, and dataset quality (Bronze → Gold).",
       viz: "Insight to product",
-      vizDesc: "Turning metrics into features users can trust and iterate on.",
+      vizDesc: "Turning metrics into dashboards and features users can trust and iterate on.",
       activity: "Model activity",
       activityLead:
         "Illustrative snapshot of a typical iteration week: training batches, scheduled evaluations, and monitoring hooks—how I reason about ML work even when charts are synthetic.",
@@ -185,9 +188,9 @@ export const translations = {
         results: "Results",
       },
       archLabels: {
-        fe: "Frontend —",
-        be: "Backend —",
-        db: "Database —",
+        fe: "Interface —",
+        be: "Models / API —",
+        db: "Data —",
       },
     },
     metrics: {
@@ -195,7 +198,7 @@ export const translations = {
       subtitle: "What the work amounts to",
       statProjects: "Projects completed",
       statFullstack: "Fullstack applications",
-      statInternship: "Internship experience",
+      statInternship: "1st prize — DL (FSBM)",
       statTech: "Technologies mastered",
     },
     howIWork: {
@@ -250,9 +253,9 @@ export const translations = {
       title: "Currently learning",
       subtitle: "Continuous improvement",
       topics: {
-        ai: "Advanced AI",
+        ai: "PyTorch & MLOps",
         system: "System design",
-        cloud: "Cloud computing",
+        cloud: "Cloud (AWS / GCP)",
       },
     },
     aiAction: {
@@ -327,10 +330,10 @@ export const translations = {
     },
     hero: {
       greeting: "Bonjour, je suis",
-      title: "Développeur IA & Fullstack",
-      subtitle: "Étudiant en Master",
+      title: "Junior en Intelligence Artificielle | Développeur Full-Stack",
+      subtitle: "Licence d’Excellence en IA — FSBM",
       tagline:
-        "Je crée des applications web intelligentes en combinant le développement fullstack et l’intelligence artificielle.",
+        "Je construis des produits intelligents à l’intersection du machine learning et de l’ingénierie fullstack — disponible pour des projets collaboratifs.",
       ctaProjects: "Voir les projets",
       ctaCv: "Télécharger le CV",
       scroll: "Défiler",
@@ -339,14 +342,17 @@ export const translations = {
       title: "À propos",
       subtitle: "Parcours & objectifs",
       p1:
-        "Je suis un développeur passionné, spécialisé en développement web fullstack et en intelligence artificielle. Je suis titulaire d’un diplôme de Technicien Spécialisé en Développement Digital (Web Fullstack) de l’OFPPT et je poursuis actuellement un niveau Master en IA.",
+        "Titulaire d’une Licence d’Excellence en Intelligence Artificielle à la Faculté des Sciences Ben M’Sik (FSBM, Casablanca) — juillet 2026, mention Bien — et d’un diplôme de Technicien Spécialisé en Développement Digital (Web Fullstack) de l’OFPPT. Parcours couvrant ML, DL, data mining, NLP, TSI (traitement du signal et de l’image), analyse de données, Python, Oracle et UML.",
       p2:
-        "J’ai travaillé sur plusieurs projets concrets : plateformes e-learning, e-commerce et sites vitrines. J’ai également effectué un stage chez INFOUNDER où j’ai développé une plateforme de blog professionnelle.",
+        "Cette année : DeepSleep AI (1er prix — meilleur projet deep learning niveau licence, FSBM), le PFE SICAM (vision par ordinateur) et la plateforme de labellisation SICAM. Freelance e-commerce réussi et stage chez INFOUNDER. Ce portfolio est mon identité digitale — ouvert aux projets collaboratifs.",
       edu: "Formation",
-      edu1: "Niveau Master — Intelligence artificielle (en cours)",
+      edu1:
+        "Licence d’Excellence — Intelligence artificielle, FSBM Casablanca (juil. 2026, mention Bien)",
       edu2: "Diplôme TS — Développement digital (Web Fullstack), OFPPT",
       exp: "Expérience",
-      exp1: "Stage — INFOUNDER : développement d’une plateforme de blog professionnelle",
+      exp1: "1er prix — meilleur projet deep learning niveau licence (FSBM)",
+      exp2: "Freelance — livraison de sites e-commerce réussis",
+      exp3: "Stage — INFOUNDER : plateforme de blog professionnelle (React, Laravel, MySQL)",
     },
     expertise: {
       title: "Mon expertise",
@@ -362,8 +368,8 @@ export const translations = {
       ai: {
         title: "Intelligence artificielle",
         description:
-          "Workflows data et bases du ML—outillage Python, analyse exploratoire et prototypes orientés évaluation, livrables à côté du code de production.",
-        tech: "Python · Pandas · NumPy · Jupyter · scikit-learn · Matplotlib",
+          "Pratique intermédiaire ML/DL : collecte et nettoyage de données, entraînement et évaluation de modèles, NLP, scraping web, et démos déployables avec l’écosystème Python.",
+        tech: "Python · scikit-learn · TensorFlow · OpenVINO · Pandas · NumPy · OpenCV · Streamlit",
       },
     },
     fullstackSection: {
@@ -424,15 +430,15 @@ export const translations = {
     },
     aiSection: {
       title: "IA & Données",
-      subtitle: "Machine learning & analyse",
+      subtitle: "Machine learning & IA appliquée",
       lead:
-        "J’allie ingénierie logicielle et fondamentaux data science : écosystème Python, analyse exploratoire et bases du ML pour des produits plus intelligents.",
-      ml: "Machine learning",
-      mlDesc: "Bases pour classification, régression et évaluation de modèles.",
-      data: "Analyse de données",
-      dataDesc: "Pandas & NumPy pour nettoyer, agréger et interpréter les données.",
+        "Workflows ML/DL de niveau intermédiaire : scraping et nettoyage, entraînement et tests de modèles, NLP, et démos orientées prod avec Python, scikit-learn, TensorFlow, OpenVINO, Jupyter, Colab, Kaggle, Hugging Face et Streamlit.",
+      ml: "Machine learning & deep learning",
+      mlDesc: "Entraînement, évaluation et itération de classifieurs pour la vision, le signal et les données tabulaires.",
+      data: "Pipelines de données",
+      dataDesc: "Scraping, nettoyage, labellisation et qualité des datasets (Bronze → Gold).",
       viz: "Des insights au produit",
-      vizDesc: "Transformer les métriques en fonctionnalités fiables et itératives.",
+      vizDesc: "Transformer les métriques en dashboards et fonctionnalités fiables et itératives.",
       activity: "Activité des modèles",
       activityLead:
         "Aperçu illustratif d’une semaine d’itération : lots d’entraînement, évaluations planifiées et points de supervision—la façon dont j’articule le travail ML même lorsque les courbes sont synthétiques.",
@@ -489,9 +495,9 @@ export const translations = {
         results: "Résultats",
       },
       archLabels: {
-        fe: "Frontend —",
-        be: "Backend —",
-        db: "Base de données —",
+        fe: "Interface —",
+        be: "Modèles / API —",
+        db: "Données —",
       },
     },
     metrics: {
@@ -499,7 +505,7 @@ export const translations = {
       subtitle: "Ce que représente le travail réalisé",
       statProjects: "Projets réalisés",
       statFullstack: "Applications fullstack",
-      statInternship: "Expérience de stage",
+      statInternship: "1er prix — DL (FSBM)",
       statTech: "Technologies maîtrisées",
     },
     howIWork: {
@@ -554,9 +560,9 @@ export const translations = {
       title: "En cours d’apprentissage",
       subtitle: "Amélioration continue",
       topics: {
-        ai: "IA avancée",
+        ai: "PyTorch & MLOps",
         system: "System design",
-        cloud: "Cloud computing",
+        cloud: "Cloud (AWS / GCP)",
       },
     },
     aiAction: {

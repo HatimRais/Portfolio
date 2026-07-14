@@ -16,14 +16,14 @@ function StatCard({ value, suffix, label, icon }) {
         whileHover={{ y: -4, transition: { type: "spring", stiffness: 400, damping: 22 } }}
       >
       <GlassCard className="group relative h-full overflow-hidden p-6 transition-shadow duration-300 hover:shadow-[0_0_36px_-12px_rgba(139,92,246,0.35)] md:p-8">
-        <div className="pointer-events-none absolute -right-6 -top-6 h-24 w-24 rounded-full bg-violet-500/10 blur-2xl transition group-hover:bg-violet-500/20" />
-        <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl border border-violet-500/20 bg-violet-500/10 text-violet-600 dark:border-violet-400/30 dark:bg-violet-500/15 dark:text-violet-400">
+        <div className="pointer-events-none absolute -right-6 -top-6 h-24 w-24 rounded-full bg-brand/10 blur-2xl transition group-hover:bg-brand/20" />
+        <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl border border-brand/20 bg-brand/10 text-brand dark:border-brand-light/30 dark:bg-brand/15 dark:text-brand-light">
           {icon}
         </div>
         <p className="font-[family-name:var(--font-display)] text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white md:text-5xl">
           {n}
           {suffix && (
-            <span className="bg-gradient-to-r from-violet-600 to-cyan-600 bg-clip-text text-transparent dark:from-violet-400 dark:to-cyan-400">
+            <span className="bg-gradient-to-r from-brand to-brand-light bg-clip-text text-transparent dark:from-brand-light dark:to-brand-light">
               {suffix}
             </span>
           )}
@@ -39,7 +39,7 @@ export function Metrics() {
   const { t } = useLanguage()
 
   return (
-    <section id="metrics" className="scroll-mt-24 px-4 py-20 md:px-6 md:py-28">
+    <section id="metrics" className="section-anchor px-3 py-14 sm:px-4 sm:py-20 md:px-6 md:py-28">
       <div className="mx-auto max-w-6xl">
         <SectionHeading eyebrow={t.metrics.subtitle} title={t.metrics.title} />
 

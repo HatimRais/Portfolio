@@ -27,7 +27,7 @@ export function FullstackSection() {
   const badges = t.fullstackSection.badges
 
   return (
-    <section id="fullstack" className="scroll-mt-24 px-4 py-20 md:px-6 md:py-28">
+    <section id="fullstack" className="section-anchor px-3 py-14 sm:px-4 sm:py-20 md:px-6 md:py-28">
       <div className="mx-auto max-w-6xl">
         <SectionHeading eyebrow={t.fullstackSection.subtitle} title={t.fullstackSection.title} />
 
@@ -40,7 +40,7 @@ export function FullstackSection() {
           {badges.map((b) => (
             <span
               key={b}
-              className="rounded-full border border-cyan-500/25 bg-cyan-500/10 px-3 py-1 text-xs font-semibold text-cyan-900 dark:border-cyan-400/30 dark:bg-cyan-500/15 dark:text-cyan-100"
+              className="rounded-full border border-brand-light/25 bg-brand-light/10 px-3 py-1 text-xs font-semibold text-brand dark:border-brand-light/30 dark:bg-brand-light/15 dark:text-brand-light"
             >
               {b}
             </span>
@@ -60,8 +60,8 @@ export function FullstackSection() {
                 transition={{ delay: i * 0.06 }}
                 whileHover={{ y: -4 }}
               >
-                <GlassCard className="group h-full border-cyan-500/15 p-6 transition duration-300 hover:border-cyan-400/35 hover:shadow-[0_0_40px_-16px_rgba(6,182,212,0.35)] md:p-7">
-                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl border border-cyan-500/25 bg-cyan-500/10 text-cyan-700 transition group-hover:scale-105 dark:text-cyan-200">
+                <GlassCard className="group h-full border-brand-light/15 p-6 transition duration-300 hover:border-brand-light/35 hover:shadow-[0_0_40px_-16px_rgba(6,182,212,0.35)] md:p-7">
+                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl border border-brand-light/25 bg-brand-light/10 text-brand transition group-hover:scale-105 dark:text-brand-light">
                     <Icon className="h-5 w-5" />
                   </div>
                   <h3 className="font-[family-name:var(--font-display)] text-lg font-bold text-slate-900 dark:text-white">

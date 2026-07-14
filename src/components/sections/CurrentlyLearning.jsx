@@ -9,7 +9,7 @@ export function CurrentlyLearning() {
   const { t } = useLanguage()
 
   return (
-    <section id="learning" className="scroll-mt-24 px-4 py-16 md:px-6 md:py-20">
+    <section id="learning" className="section-anchor px-3 py-12 sm:px-4 sm:py-16 md:px-6 md:py-20">
       <div className="mx-auto max-w-6xl">
         <SectionHeading eyebrow={t.learning.subtitle} title={t.learning.title} />
 
@@ -23,7 +23,7 @@ export function CurrentlyLearning() {
               transition={{ delay: i * 0.08, type: "spring", stiffness: 380, damping: 24 }}
               whileHover={{ scale: 1.04 }}
             >
-              <GlassCard className="border-violet-500/20 px-6 py-4 transition hover:border-violet-400/40 hover:shadow-[0_0_24px_-8px_rgba(139,92,246,0.4)]">
+              <GlassCard className="border-brand/20 px-6 py-4 transition hover:border-brand-light/40 hover:shadow-[0_0_24px_-8px_rgba(139,92,246,0.4)]">
                 <p className="font-[family-name:var(--font-display)] text-sm font-semibold text-slate-800 dark:text-slate-100">
                   {t.learning.topics[key]}
                 </p>

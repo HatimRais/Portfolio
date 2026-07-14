@@ -12,14 +12,14 @@ export function Hero() {
     () =>
       lang === "fr"
         ? [
-            "Plateformes e-learning scalables",
-            "APIs REST & expériences React",
-            "Données & bases du machine learning",
+            "DeepSleep AI — classement du sommeil (1er prix DL)",
+            "SICAM — vision & patrimoine marocain",
+            "Fullstack e-commerce & labellisation collaborative",
           ]
         : [
-            "Scalable e-learning platforms",
-            "REST APIs & React experiences",
-            "Data & machine learning foundations",
+            "DeepSleep AI — sleep staging (1st prize DL)",
+            "SICAM — vision & Moroccan heritage",
+            "Fullstack e-commerce & collaborative labeling",
           ],
     [lang],
   )
@@ -46,106 +46,142 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-dvh flex-col justify-center overflow-x-clip px-3 pb-[max(6rem,env(safe-area-inset-bottom))] pt-[max(5.5rem,env(safe-area-inset-top))] sm:px-4 sm:pb-24 sm:pt-28 md:px-6 md:pb-32 md:pt-32"
+      className="section-anchor relative flex flex-col justify-start overflow-x-clip px-3 pb-[max(4.5rem,env(safe-area-inset-bottom))] pt-[max(5.75rem,calc(env(safe-area-inset-top)+4.25rem))] sm:min-h-dvh sm:justify-center sm:px-6 sm:pb-20 md:px-8 md:pb-28 md:pt-32"
     >
-      <div className="mx-auto w-full min-w-0 max-w-6xl">
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.05 }}
-          className="mb-3 text-sm font-medium uppercase tracking-[0.25em] text-violet-600 dark:text-violet-400"
-        >
-          {t.hero.greeting}
-        </motion.p>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.12 }}
-          className="font-[family-name:var(--font-display)] text-[1.75rem] font-extrabold leading-[1.08] tracking-tight text-slate-900 min-[360px]:text-3xl min-[400px]:text-4xl dark:text-white sm:text-5xl md:text-6xl lg:text-7xl"
-        >
-          Hatim Rais
-        </motion.h1>
-
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="mt-4 max-w-3xl space-y-2"
-        >
-          <p className="text-lg font-semibold leading-snug text-slate-700 min-[400px]:text-xl dark:text-slate-200 md:text-2xl">
-            {t.hero.title}
-          </p>
-          <p className="text-sm text-violet-600/90 min-[400px]:text-base dark:text-violet-400/90 md:text-lg">
-            {t.hero.subtitle}
-          </p>
-          <p className="max-w-2xl text-sm leading-relaxed text-slate-600 min-[400px]:text-base dark:text-slate-400 md:text-lg">
-            {t.hero.tagline}
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.35 }}
-          className="mt-6 min-h-[2.25rem] min-w-0 max-w-full text-base min-[400px]:mt-8 min-[400px]:min-h-[2.5rem] min-[400px]:text-lg md:text-xl"
-        >
-          <TypingText key={lang} phrases={phrases} />
-        </motion.div>
-
+      <div className="mx-auto grid w-full min-w-0 max-w-6xl gap-6 sm:gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:gap-16">
+        {/* Mobile / tablet portrait */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.45 }}
-          className="mt-8 flex w-full min-w-0 flex-col gap-3 min-[420px]:flex-row min-[420px]:flex-wrap"
+          transition={{ delay: 0.08 }}
+          className="mx-auto w-full max-w-[10.5rem] min-[380px]:max-w-[12rem] sm:max-w-[14rem] lg:hidden"
         >
-          <motion.button
-            type="button"
-            onClick={() => scrollTo("projects")}
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
-            transition={{ type: "spring", stiffness: 400, damping: 22 }}
-            className="min-h-12 w-full rounded-2xl bg-gradient-to-r from-violet-600 via-fuchsia-600 to-cyan-600 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-violet-500/35 min-[420px]:w-auto min-[420px]:px-8 dark:from-violet-500 dark:via-fuchsia-500 dark:to-cyan-500"
+          <div className="relative aspect-[4/5] overflow-hidden border border-ink/10 dark:border-paper/15">
+            <img
+              src="/photo_portfolio.jpeg"
+              alt="Hatim Rais"
+              className="h-full w-full object-cover object-[center_20%]"
+              width={448}
+              height={560}
+              decoding="async"
+            />
+          </div>
+        </motion.div>
+
+        <div className="min-w-0 text-center sm:text-left">
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.05 }}
+            className="mb-3 font-[family-name:var(--font-serif)] text-sm italic text-brand dark:text-brand-light sm:mb-4 sm:text-base"
           >
-            {t.hero.ctaProjects}
-          </motion.button>
-          <motion.a
-            href="/cv.pdf"
-            onClick={onCvClick}
-            whileHover={{ scale: 1.03, borderColor: "rgba(139, 92, 246, 0.45)" }}
-            whileTap={{ scale: 0.98 }}
-            transition={{ type: "spring", stiffness: 400, damping: 22 }}
-            className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl border border-slate-300/90 bg-white/60 px-6 py-3.5 text-sm font-semibold text-slate-800 shadow-sm backdrop-blur-sm min-[420px]:w-auto min-[420px]:px-8 dark:border-white/15 dark:bg-slate-900/50 dark:text-slate-100"
+            {t.hero.greeting}
+          </motion.p>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            className="font-[family-name:var(--font-display)] text-[clamp(2.35rem,11vw,6.5rem)] font-bold leading-[0.94] tracking-tight text-ink dark:text-paper"
           >
-            <motion.span
-              aria-hidden
-              animate={{ y: [0, -2, 0] }}
-              transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+            Hatim
+            <br />
+            Rais
+          </motion.h1>
+
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.22 }}
+            className="mx-auto mt-5 max-w-xl space-y-2.5 border-ochre pl-0 sm:mx-0 sm:mt-6 sm:space-y-3 sm:border-l-2 sm:pl-5"
+          >
+            <p className="break-words text-balance text-base font-semibold leading-snug text-ink dark:text-paper/95 sm:text-lg md:text-xl">
+              {t.hero.title}
+            </p>
+            <p className="text-sm text-brand dark:text-brand-light md:text-base">{t.hero.subtitle}</p>
+            <p className="break-phone text-sm leading-relaxed text-ink/65 dark:text-paper/60 md:text-base">
+              {t.hero.tagline}
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.35 }}
+            className="mt-5 min-h-[2.5rem] text-sm sm:mt-7 sm:min-h-[2rem] sm:text-base md:text-lg"
+          >
+            <TypingText key={lang} phrases={phrases} />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.42 }}
+            className="mt-6 flex w-full flex-col gap-3 sm:mt-8 min-[480px]:flex-row min-[480px]:justify-center sm:min-[480px]:justify-start"
+          >
+            <button
+              type="button"
+              onClick={() => scrollTo("projects")}
+              className="inline-flex min-h-12 w-full items-center justify-center bg-brand px-6 py-3.5 text-sm font-semibold tracking-wide text-white transition hover:bg-brand-light min-[480px]:w-auto dark:bg-brand-light dark:text-ink dark:hover:bg-brand"
             >
-              <DownloadIcon className="h-5 w-5 text-violet-600 dark:text-violet-400" />
-            </motion.span>
-            {t.hero.ctaCv}
-          </motion.a>
-        </motion.div>
+              {t.hero.ctaProjects}
+            </button>
+            <a
+              href="/cv.pdf"
+              onClick={onCvClick}
+              className="inline-flex min-h-12 w-full items-center justify-center gap-2 border border-ink/20 bg-transparent px-6 py-3.5 text-sm font-semibold text-ink transition hover:border-brand hover:text-brand min-[480px]:w-auto dark:border-paper/25 dark:text-paper dark:hover:border-brand-light dark:hover:text-brand-light"
+            >
+              <DownloadIcon className="h-4 w-4 shrink-0 text-ochre" />
+              {t.hero.ctaCv}
+            </a>
+          </motion.div>
+        </div>
+
+        <motion.aside
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="relative hidden min-h-[28rem] lg:block"
+        >
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute inset-3 border border-ink/12 dark:border-paper/15" />
+            <div className="absolute inset-6 overflow-hidden bg-mist dark:bg-white/5">
+              <img
+                src="/photo_portfolio.jpeg"
+                alt="Hatim Rais"
+                className="h-full w-full object-cover object-[center_18%] transition duration-700 hover:scale-[1.02]"
+                width={720}
+                height={900}
+                decoding="async"
+              />
+            </div>
+            <div className="absolute bottom-10 left-10 right-10 bg-paper/90 p-4 backdrop-blur-sm dark:bg-surface-dark/90">
+              <p className="font-[family-name:var(--font-serif)] text-sm italic leading-snug text-ink/75 dark:text-paper/70">
+                {lang === "fr"
+                  ? "Licence d’Excellence · FSBM · mention Bien"
+                  : "Licence d’Excellence · FSBM · Mention Bien"}
+              </p>
+              <div className="mt-2 flex flex-wrap gap-4 text-[10px] font-semibold uppercase tracking-[0.16em] text-ink/45 dark:text-paper/40">
+                <span>ML / DL</span>
+                <span>Full-Stack</span>
+              </div>
+            </div>
+            <div className="absolute right-4 top-4 h-3 w-3 bg-ochre" aria-hidden />
+          </div>
+        </motion.aside>
       </div>
 
       <motion.button
         type="button"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
+        transition={{ delay: 0.9 }}
         onClick={() => scrollTo("about")}
-        className="absolute bottom-[max(1.25rem,env(safe-area-inset-bottom))] left-1/2 flex -translate-x-1/2 flex-col items-center gap-1 text-xs font-medium text-slate-500 dark:text-slate-400"
+        className="mt-10 hidden min-h-11 items-center justify-center gap-2 self-center px-4 text-[10px] font-semibold uppercase tracking-[0.22em] text-ink/45 sm:mt-14 sm:inline-flex dark:text-paper/40 md:absolute md:bottom-[max(1rem,env(safe-area-inset-bottom))] md:left-1/2 md:mt-0 md:-translate-x-1/2"
         aria-label={t.hero.scroll}
       >
-        <span className="uppercase tracking-widest">{t.hero.scroll}</span>
-        <motion.span
-          className="h-8 w-5 rounded-full border-2 border-slate-400/50 dark:border-slate-500"
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 1.6, repeat: Infinity }}
-        >
-          <span className="mx-auto mt-1.5 block h-1.5 w-1 rounded-full bg-violet-500" />
-        </motion.span>
+        <span className="h-px w-8 bg-ochre" />
+        {t.hero.scroll}
       </motion.button>
     </section>
   )

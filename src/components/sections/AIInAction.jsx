@@ -24,7 +24,7 @@ export function AIInAction() {
   return (
     <section
       id="ai-action"
-      className="scroll-mt-24 border-t border-slate-200/60 px-4 pb-20 pt-16 dark:border-white/10 md:px-6 md:pb-28 md:pt-20"
+      className="section-anchor border-t border-slate-200/60 px-3 pb-16 pt-12 dark:border-white/10 sm:px-4 sm:pb-20 sm:pt-16 md:px-6 md:pb-28 md:pt-20"
       aria-label={t.aiAction.title}
     >
       <div className="mx-auto max-w-6xl">
@@ -45,7 +45,7 @@ export function AIInAction() {
               }}
               rows={4}
               placeholder={t.aiAction.placeholder}
-              className="w-full resize-y rounded-xl border border-slate-200/80 bg-white/80 px-4 py-3 text-sm text-slate-900 outline-none ring-violet-500/25 transition focus:border-violet-500 focus:ring-2 dark:border-white/10 dark:bg-slate-800/60 dark:text-white"
+              className="w-full resize-y rounded-xl border border-slate-200/80 bg-white/80 px-4 py-3 text-base text-slate-900 outline-none ring-brand/25 transition focus:border-brand focus:ring-2 sm:text-sm dark:border-white/10 dark:bg-slate-800/60 dark:text-white"
             />
             <motion.button
               type="button"
@@ -53,7 +53,7 @@ export function AIInAction() {
               onClick={runAnalyze}
               whileHover={{ scale: busy ? 1 : 1.02 }}
               whileTap={{ scale: busy ? 1 : 0.98 }}
-              className="mt-4 w-full rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-500/25 transition disabled:cursor-not-allowed disabled:opacity-50 dark:from-violet-500 dark:to-fuchsia-500"
+              className="mt-4 min-h-12 w-full rounded-xl bg-gradient-to-r from-brand to-ochre py-3 text-sm font-semibold text-white shadow-lg shadow-brand/25 transition disabled:cursor-not-allowed disabled:opacity-50 dark:from-brand-light dark:to-ochre"
             >
               {busy ? t.aiAction.analyzing : t.aiAction.analyze}
             </motion.button>

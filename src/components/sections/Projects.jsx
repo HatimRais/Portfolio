@@ -34,7 +34,7 @@ export function Projects() {
   const cat = (key) => (key && t.projects.categories?.[key] ? t.projects.categories[key] : null)
 
   return (
-    <section id="projects" className="scroll-mt-24 px-3 py-16 sm:px-4 sm:py-20 md:px-6 md:py-28">
+    <section id="projects" className="section-anchor px-3 py-16 sm:px-4 sm:py-20 md:px-6 md:py-28">
       <div className="mx-auto min-w-0 max-w-6xl">
         <SectionHeading eyebrow={t.projects.subtitle} title={t.projects.title} />
 
@@ -48,11 +48,11 @@ export function Projects() {
             const isActive = activeDomain === domain
             const fullstackActive =
               isActive && domain === "fullstack"
-                ? "border-transparent bg-gradient-to-r from-cyan-600 to-emerald-600 text-white shadow-lg shadow-cyan-500/30 dark:from-cyan-500 dark:to-emerald-500"
+                ? "border-transparent bg-gradient-to-r from-brand-light to-emerald-600 text-white shadow-lg shadow-brand-light/30 dark:from-brand-light dark:to-emerald-500"
                 : ""
             const aiActive =
               isActive && domain === "ai"
-                ? "border-transparent bg-gradient-to-r from-violet-600 to-indigo-600 text-white shadow-lg shadow-violet-500/35 dark:from-violet-500 dark:to-indigo-600"
+                ? "border-transparent bg-gradient-to-r from-brand to-brand text-white shadow-lg shadow-brand/35 dark:from-brand-light dark:to-brand"
                 : ""
             const allActive =
               isActive && domain === "all"
@@ -66,7 +66,7 @@ export function Projects() {
                 onClick={() => setActiveDomain(domain)}
                 className={`rounded-full border px-3 py-2 text-[10px] font-semibold uppercase tracking-wide transition min-[400px]:px-4 min-[400px]:text-xs min-[400px]:tracking-wider ${
                   activeClass ||
-                  "border-slate-300/80 bg-white/50 text-slate-600 hover:border-cyan-400/40 dark:border-white/10 dark:bg-slate-900/40 dark:text-slate-300 dark:hover:border-violet-400/40"
+                  "border-slate-300/80 bg-white/50 text-slate-600 hover:border-brand-light/40 dark:border-white/10 dark:bg-slate-900/40 dark:text-slate-300 dark:hover:border-brand-light/40"
                 }`}
               >
                 {t.projects[key]}

@@ -1,5 +1,4 @@
 import { GradientBackground } from "./components/ui/GradientBackground"
-import { FloatingParticles } from "./components/ui/FloatingParticles"
 import { Navbar } from "./components/layout/Navbar"
 import { Footer } from "./components/layout/Footer"
 import { CommandPalette } from "./components/layout/CommandPalette"
@@ -20,9 +19,8 @@ import { Contact } from "./components/sections/Contact"
 
 function App() {
   return (
-    <div className="relative min-h-dvh overflow-x-clip text-slate-900 dark:text-slate-100">
+    <div className="relative min-h-dvh overflow-x-clip text-ink dark:text-paper">
       <GradientBackground />
-      <FloatingParticles />
       <Navbar />
       <CommandPalette />
       <main className="overflow-x-clip">
@@ -37,7 +35,7 @@ function App() {
         <HowIWork />
         <TestingSecurity />
         <CurrentlyLearning />
-        <div id="ai" className="scroll-mt-24">
+        <div id="ai" className="section-anchor">
           <AISection />
           <AIInAction />
         </div>

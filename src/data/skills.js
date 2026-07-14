@@ -28,20 +28,22 @@ export const skillGroups = [
   {
     key: "ai",
     skills: [
-      { name: "Python", level: 85 },
-      { name: "Pandas", level: 80 },
-      { name: "NumPy", level: 78 },
-      { name: "Machine Learning basics", level: 72 },
+      { name: "Python", level: 88 },
+      { name: "scikit-learn / ML", level: 82 },
+      { name: "Deep Learning (TF/Keras)", level: 80 },
+      { name: "Pandas / NumPy", level: 84 },
+      { name: "OpenCV / OpenVINO", level: 78 },
+      { name: "NLP & scraping", level: 80 },
     ],
   },
   {
     key: "tools",
     skills: [
       { name: "Git / GitHub", level: 92 },
-      { name: "Jira", level: 78 },
-      { name: "Scrum", level: 85 },
-      { name: "Figma", level: 75 },
-      { name: "Postman", level: 88 },
+      { name: "Jupyter / Colab / Kaggle", level: 86 },
+      { name: "Streamlit / HF", level: 80 },
+      { name: "Jira / Scrum", level: 82 },
+      { name: "Postman / Figma", level: 85 },
     ],
   },
 ]

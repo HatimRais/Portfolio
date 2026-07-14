@@ -9,7 +9,7 @@ export function TestingSecurity() {
   const { t } = useLanguage()
 
   return (
-    <section id="engineering" className="scroll-mt-24 px-4 py-20 md:px-6 md:py-28">
+    <section id="engineering" className="section-anchor px-3 py-14 sm:px-4 sm:py-20 md:px-6 md:py-28">
       <div className="mx-auto max-w-6xl">
         <SectionHeading eyebrow={t.engineering.subtitle} title={t.engineering.title} />
 

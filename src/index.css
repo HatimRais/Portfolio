@@ -3,10 +3,19 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-display: "Outfit", system-ui, sans-serif;
-  --font-sans: "DM Sans", system-ui, sans-serif;
-  --color-surface-dark: #030712;
-  --color-surface-light: #f8fafc;
+  --font-display: "Syne", system-ui, sans-serif;
+  --font-sans: "Source Sans 3", system-ui, sans-serif;
+  --font-serif: "Source Serif 4", Georgia, serif;
+
+  --color-brand: #1f6b5c;
+  --color-brand-light: #3d9a86;
+  --color-brand-soft: #dceee9;
+  --color-ochre: #c4782c;
+  --color-paper: #f4f3ef;
+  --color-mist: #e6e5e0;
+  --color-ink: #161814;
+  --color-surface-dark: #121411;
+  --color-surface-light: #f4f3ef;
 }
 
 html {
@@ -19,10 +28,18 @@ html {
 body {
   margin: 0;
   font-family: var(--font-sans);
+  color: var(--color-ink);
+  background-color: var(--color-paper);
   -webkit-font-smoothing: antialiased;
   overflow-x: clip;
   -webkit-tap-highlight-color: transparent;
   text-wrap: pretty;
+}
+
+.dark body,
+html.dark body {
+  color: #e8e6e1;
+  background-color: var(--color-surface-dark);
 }
 
 @media (max-width: 24rem) {
@@ -36,17 +53,38 @@ body {
   overflow-x: clip;
 }
 
+/* Clear fixed navbar + notch when scrolling to anchors */
+.section-anchor {
+  scroll-margin-top: max(6.75rem, calc(env(safe-area-inset-top, 0px) + 4.75rem));
+}
+
 @supports (padding: max(0px)) {
   .safe-pb {
     padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
   }
+  .safe-px {
+    padding-left: max(0.75rem, env(safe-area-inset-left));
+    padding-right: max(0.75rem, env(safe-area-inset-right));
+  }
 }
 
 ::selection {
-  background: color-mix(in oklab, #7c3aed 35%, transparent);
+  background: color-mix(in oklab, #1f6b5c 32%, transparent);
   color: inherit;
 }
 
 .dark ::selection {
-  background: color-mix(in oklab, #a78bfa 40%, transparent);
+  background: color-mix(in oklab, #3d9a86 40%, transparent);
+}
+
+.bg-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+}
+
+/* Prevent long tokens / URLs from forcing horizontal scroll on phones */
+@media (max-width: 40rem) {
+  .break-phone {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
 }

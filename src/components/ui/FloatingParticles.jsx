@@ -17,7 +17,7 @@ export function FloatingParticles() {
       {dots.map((d) => (
         <motion.span
           key={d.id}
-          className="absolute rounded-full bg-violet-400/50 dark:bg-violet-400/35"
+          className="absolute rounded-full bg-brand-light/50 dark:bg-brand-light/35"
           style={{
             left: d.x,
             top: d.y,

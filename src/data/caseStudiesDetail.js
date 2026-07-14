@@ -1,68 +1,80 @@
-/** Deep-dive case study copy (EN / FR) — LearnHub & Perfume e-commerce */
+/** Deep-dive case study copy (EN / FR) — DeepSleep AI & SICAM */
 
 export const caseStudiesDetail = {
   en: {
-    learnhub: {
-      name: "LearnHub",
-      tag: "E-learning platform",
+    deepsleep: {
+      name: "DeepSleep AI",
+      tag: "Sleep staging · Biomedical AI · 1st prize DL (FSBM)",
       problem:
-        "Organizations needed a single place to run courses, manage cohorts, and separate responsibilities between admins, instructors, and students—without juggling disconnected tools.",
+        "Manual sleep scoring from polysomnography is slow and expert-dependent. Clinics need automated staging from EOG (electro-oculography) that is accurate enough for triage and fast enough for interactive use—including on constrained hardware (CPU / NPU).",
       solution:
-        "Designed a fullstack product with role-based portals: Laravel for robust APIs, auth, and business rules; React for fast, component-driven UIs; MySQL for relational course and enrollment data.",
-      archFe: "React SPA: modular screens, forms, and dashboards per role.",
-      archBe: "Laravel: REST APIs, policies, validation, and service-oriented modules.",
-      archDb: "MySQL: normalized schema for users, courses, modules, and progress.",
+        "Built an end-to-end pipeline: MNE preprocessing of EOG epochs (AASM stages W/N1/N2/N3/REM), dual deep models (CNN+Bi-LSTM for peak accuracy, CNN-only for NPU), OpenVINO FP16 export, and a clinical DeepSleep AI app (Next.js + FastAPI, Streamlit legacy) for upload, hypnogram, and metrics.",
+      archFe:
+        "DeepSleep AI clinical UI — Next.js dashboards, charts, and hypnogram; Streamlit legacy for rapid demos.",
+      archBe:
+        "Python training (TensorFlow/Keras) + FastAPI inference service with OpenVINO (CPU/GPU/NPU auto-detect).",
+      archDb:
+        "Sleep-EDF signals & labels, subject-wise splits, exported Keras checkpoints and OpenVINO IR (.xml/.bin).",
       challenges:
-        "Balancing permission models across three roles, keeping enrollment and content state consistent, and structuring APIs so the frontend could evolve without breaking contracts.",
+        "Subject leakage in splits, class imbalance across stages, NPU limits on recurrent ops (forced a parallel CNN-only path), and keeping clinical UX clear while exposing model confidence.",
       results:
-        "A cohesive platform for course delivery and administration, clearer ownership of features per role, and a foundation that scales with more courses and users.",
+        "Up to ~91.6% indicative accuracy; CNN NPU path ~85.9% hold-out with κ ≈ 0.76 and ~5 650 epochs/s on Intel NPU. Awarded 1st prize — best deep learning project at licence level (FSBM).",
     },
-    perfume: {
-      name: "Perfume E-commerce",
-      tag: "E-commerce",
+    sicam: {
+      name: "SICAM",
+      tag: "Computer vision · Moroccan heritage garments · PFE",
       problem:
-        "Retailers required a modern storefront with reliable catalog management, cart/checkout flow, and order handling—while keeping the experience fast and trustworthy for shoppers.",
+        "Generic fashion datasets ignore Moroccan traditional clothing. Without a curated, consensus-labeled corpus and culturally aware taxonomy, classifiers cannot reliably identify garment types (Caftan, Takchita, …) or heritage Caftan styles.",
       solution:
-        "Built a Laravel + React stack: secure backend for products, inventory, and orders; React + Tailwind for a responsive, conversion-focused UI; MySQL as the source of truth for transactions.",
-      archFe: "React + Tailwind: product grids, cart, checkout steps, and admin-aligned UX.",
-      archBe: "Laravel: REST endpoints, order pipelines, and integration hooks for admin tools.",
-      archDb: "MySQL: products, categories, carts, orders, and stock-related tables.",
+        "Designed a Bronze→Gold pipeline: automated scraping (e-commerce / Pinterest / Wikimedia), collaborative labeling platform with multi-annotator consensus, then cascade models — TYPE classifier (6 classes) followed by heritage Caftan style recognition (7 styles) when Caftan is detected — shipped as a live demo API/web app.",
+      archFe:
+        "Public classification demo (image upload → cascade prediction) on Railway + SICAM Labeling Platform (React/Vite) for annotation.",
+      archBe:
+        "Python pipeline (scrape, dedup, train, FastAPI serve) with EfficientNet TYPE/patrimoine models; Laravel API for labeling workflows.",
+      archDb:
+        "Staging / Gold image datasets, master CSVs, Cloudinary assets, MySQL for annotators, votes, and consensus state.",
       challenges:
-        "Keeping cart and stock in sync under concurrent use, structuring checkout for fewer drop-offs, and maintaining clean separation between public shop and admin operations.",
+        "Noisy web images, cultural taxonomy design, consensus thresholds for gold labels, domain shift between scrapers and real photos, and keeping TYPE vs patrimoine tracks independent yet cascaded at inference.",
       results:
-        "End-to-end shopping flow from browse to order, maintainable catalog and order management, and UI patterns reusable across similar commerce projects.",
+        "Live demo at sicam-production.up.railway.app — TYPE test accuracy ~77.9% (EfficientNet-B2); heritage track for 7 Caftan styles; labeling platform in production for sustainable dataset growth.",
     },
   },
   fr: {
-    learnhub: {
-      name: "LearnHub",
-      tag: "Plateforme e-learning",
+    deepsleep: {
+      name: "DeepSleep AI",
+      tag: "Stades du sommeil · IA biomédicale · 1er prix DL (FSBM)",
       problem:
-        "Les structures avaient besoin d’un espace unique pour dispenser des cours, gérer les promotions et séparer les rôles admin, formateur et étudiant—sans multiplier les outils.",
+        "Le scoring manuel du sommeil à partir de la polysomnographie est long et dépend d’experts. Les équipes cliniques ont besoin d’un staging automatique à partir de l’EOG (électro-oculographie), assez précis pour le triage et assez rapide pour un usage interactif — y compris sur matériel contraint (CPU / NPU).",
       solution:
-        "Conception d’un produit fullstack avec portails par rôle : Laravel pour les API, l’auth et la logique métier ; React pour des interfaces modulaires ; MySQL pour les données cours et inscriptions.",
-      archFe: "SPA React : écrans, formulaires et tableaux de bord par rôle.",
-      archBe: "Laravel : API REST, politiques d’accès, validation et modules services.",
-      archDb: "MySQL : schéma normalisé utilisateurs, cours, modules et progression.",
+        "Pipeline bout en bout : prétraitement MNE des époques EOG (stades AASM W/N1/N2/N3/REM), deux modèles deep (CNN+Bi-LSTM pour la précision, CNN pur pour le NPU), export OpenVINO FP16, et application clinique DeepSleep AI (Next.js + FastAPI, Streamlit legacy) pour upload, hypnogramme et métriques.",
+      archFe:
+        "UI clinique DeepSleep AI — dashboards Next.js, graphiques et hypnogramme ; Streamlit legacy pour les démos rapides.",
+      archBe:
+        "Entraînement Python (TensorFlow/Keras) + service d’inférence FastAPI avec OpenVINO (détection auto CPU/GPU/NPU).",
+      archDb:
+        "Signaux & labels Sleep-EDF, splits par sujet, checkpoints Keras et IR OpenVINO (.xml/.bin).",
       challenges:
-        "Harmoniser les droits sur trois rôles, garantir la cohérence des inscriptions et du contenu, et stabiliser les contrats d’API pour faire évoluer le front sans régressions.",
+        "Fuite de sujets dans les splits, déséquilibre des classes, limites NPU sur les ops récurrentes (chemin CNN parallèle obligatoire), et UX clinique claire avec exposition de la confiance du modèle.",
       results:
-        "Une plateforme unifiée pour la formation et l’administration, une séparation claire des fonctionnalités par rôle, et une base prête à accueillir plus de cours et d’utilisateurs.",
+        "Jusqu’à ~91,6 % d’accuracy indicative ; chemin CNN NPU ~85,9 % hold-out (κ ≈ 0,76) et ~5 650 époques/s sur NPU Intel. 1er prix — meilleur projet deep learning niveau licence (FSBM).",
     },
-    perfume: {
-      name: "E-commerce parfumerie",
-      tag: "E-commerce",
+    sicam: {
+      name: "SICAM",
+      tag: "Vision par ordinateur · Patrimoine vestimentaire · PFE",
       problem:
-        "Besoin d’une vitrine moderne avec catalogue fiable, panier / commande et suivi des ventes—tout en offrant une expérience fluide et rassurante.",
+        "Les datasets fashion génériques ignorent les vêtements traditionnels marocains. Sans corpus annoté par consensus ni taxonomie culturelle, un classifieur ne peut pas identifier de façon fiable les types (Caftan, Takchita, …) ni les styles Caftan patrimoine.",
       solution:
-        "Stack Laravel + React : backend sécurisé pour produits, stocks et commandes ; React + Tailwind pour une UI responsive orientée conversion ; MySQL comme référentiel transactionnel.",
-      archFe: "React + Tailwind : grilles produit, panier, tunnel de commande.",
-      archBe: "Laravel : API REST, flux commandes et points d’extension pour l’admin.",
-      archDb: "MySQL : produits, catégories, paniers, commandes et stock.",
+        "Pipeline Bronze→Gold : scraping automatisé (e-commerce / Pinterest / Wikimedia), plateforme de labellisation collaborative avec consensus multi-annotateurs, puis modèles en cascade — classifieur TYPE (6 classes) puis styles Caftan patrimoine (7) si Caftan détecté — livrés en démo API / web.",
+      archFe:
+        "Démo de classification publique (upload → prédiction cascade) sur Railway + SICAM Labeling Platform (React/Vite) pour l’annotation.",
+      archBe:
+        "Pipeline Python (scrape, dedup, train, FastAPI) avec EfficientNet TYPE/patrimoine ; API Laravel pour les workflows de labellisation.",
+      archDb:
+        "Datasets images Staging / Gold, CSV master, assets Cloudinary, MySQL pour annotateurs, votes et consensus.",
       challenges:
-        "Synchroniser panier et stock en usage concurrent, simplifier le tunnel de commande et isoler proprement boutique publique et back-office.",
+        "Images web bruitées, conception de la taxonomie culturelle, seuils de consensus gold, décalage domaine scrapers ↔ photos réelles, et tracks TYPE / patrimoine indépendants mais cascaded à l’inférence.",
       results:
-        "Parcours complet de la découverte à la commande, gestion catalogue / commandes maintenable, et patterns UI réutilisables pour d’autres sites e-commerce.",
+        "Démo live sicam-production.up.railway.app — accuracy TYPE ~77,9 % (EfficientNet-B2) ; track patrimoine 7 styles Caftan ; plateforme de labellisation en production pour enrichir le dataset.",
     },
   },
 }

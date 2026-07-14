@@ -33,26 +33,26 @@ export function MyExpertise() {
       key: "fullstack",
       icon: CodeStackIcon,
       accent:
-        "border-cyan-500/25 bg-gradient-to-br from-cyan-500/10 via-white/40 to-emerald-500/10 shadow-cyan-500/10 hover:border-cyan-400/50 hover:shadow-[0_20px_50px_-20px_rgba(6,182,212,0.45)] dark:from-cyan-500/10 dark:via-slate-900/40 dark:to-emerald-500/10 dark:hover:shadow-[0_20px_50px_-20px_rgba(34,211,238,0.25)]",
-      iconWrap: "border-cyan-500/30 bg-cyan-500/15 text-cyan-700 dark:text-cyan-200",
+        "border-brand-light/25 bg-gradient-to-br from-brand-light/10 via-white/40 to-emerald-500/10 shadow-brand-light/10 hover:border-brand-light/50 hover:shadow-[0_20px_50px_-20px_rgba(6,182,212,0.45)] dark:from-brand-light/10 dark:via-slate-900/40 dark:to-emerald-500/10 dark:hover:shadow-[0_20px_50px_-20px_rgba(34,211,238,0.25)]",
+      iconWrap: "border-brand-light/30 bg-brand-light/15 text-brand dark:text-brand-light",
       btnClass:
-        "rounded-xl bg-gradient-to-r from-cyan-600 to-emerald-600 px-4 py-2.5 text-sm font-semibold text-white shadow-md shadow-cyan-500/25 transition group-hover:shadow-cyan-500/40 dark:from-cyan-500 dark:to-emerald-500",
+        "rounded-xl bg-gradient-to-r from-brand-light to-emerald-600 px-4 py-2.5 text-sm font-semibold text-white shadow-md shadow-brand-light/25 transition group-hover:shadow-brand-light/40 dark:from-brand-light dark:to-emerald-500",
       onExplore: () => goProjects("fullstack"),
     },
     {
       key: "ai",
       icon: NeuralIcon,
       accent:
-        "border-violet-500/25 bg-gradient-to-br from-violet-500/10 via-white/40 to-indigo-500/10 shadow-violet-500/10 hover:border-violet-400/50 hover:shadow-[0_20px_50px_-20px_rgba(139,92,246,0.45)] dark:from-violet-500/10 dark:via-slate-900/40 dark:to-indigo-500/10 dark:hover:shadow-[0_20px_50px_-20px_rgba(167,139,250,0.22)]",
-      iconWrap: "border-violet-500/30 bg-violet-500/15 text-violet-700 dark:text-violet-200",
+        "border-brand/25 bg-gradient-to-br from-brand/10 via-white/40 to-brand/10 shadow-brand/10 hover:border-brand-light/50 hover:shadow-[0_20px_50px_-20px_rgba(139,92,246,0.45)] dark:from-brand/10 dark:via-slate-900/40 dark:to-brand/10 dark:hover:shadow-[0_20px_50px_-20px_rgba(167,139,250,0.22)]",
+      iconWrap: "border-brand/30 bg-brand/15 text-brand dark:text-brand-light",
       btnClass:
-        "rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-md shadow-violet-500/25 transition group-hover:shadow-violet-500/40 dark:from-violet-500 dark:to-indigo-600",
+        "rounded-xl bg-gradient-to-r from-brand to-brand px-4 py-2.5 text-sm font-semibold text-white shadow-md shadow-brand/25 transition group-hover:shadow-brand/40 dark:from-brand-light dark:to-brand",
       onExplore: () => goProjects("ai"),
     },
   ]
 
   return (
-    <section id="expertise" className="scroll-mt-24 px-4 py-20 md:px-6 md:py-28">
+    <section id="expertise" className="section-anchor px-3 py-14 sm:px-4 sm:py-20 md:px-6 md:py-28">
       <div className="mx-auto max-w-6xl">
         <SectionHeading eyebrow={t.expertise.subtitle} title={t.expertise.title} />
 

@@ -36,13 +36,13 @@ export function TypingText({ phrases, className = "" }) {
           key={index + display}
           initial={{ opacity: 0.85 }}
           animate={{ opacity: 1 }}
-          className="break-words bg-gradient-to-r from-violet-600 via-fuchsia-500 to-cyan-500 bg-clip-text text-transparent dark:from-violet-400 dark:via-fuchsia-400 dark:to-cyan-400"
+          className="break-words font-[family-name:var(--font-serif)] text-brand italic dark:text-brand-light"
         >
           {display}
         </motion.span>
       </AnimatePresence>
       <motion.span
-        className="ml-0.5 inline-block h-[1.1em] w-0.5 translate-y-0.5 bg-violet-500 dark:bg-violet-400"
+        className="ml-0.5 inline-block h-[1.1em] w-0.5 translate-y-0.5 bg-ochre"
         animate={{ opacity: [1, 0] }}
         transition={{ duration: 0.55, repeat: Infinity, repeatType: "reverse" }}
         aria-hidden

@@ -5,12 +5,12 @@ import { GlassCard } from "../ui/GlassCard"
 import { SectionHeading } from "../ui/SectionHeading"
 
 const bars = [
-  { h: 62, delay: 0, color: "from-violet-600 to-violet-400", kind: "train" },
-  { h: 78, delay: 0.08, color: "from-indigo-600 to-indigo-400", kind: "eval" },
-  { h: 55, delay: 0.16, color: "from-violet-600 to-fuchsia-500", kind: "train" },
-  { h: 88, delay: 0.24, color: "from-indigo-500 to-blue-500", kind: "eval" },
-  { h: 48, delay: 0.32, color: "from-fuchsia-600 to-violet-500", kind: "train" },
-  { h: 70, delay: 0.4, color: "from-blue-500 to-indigo-500", kind: "eval" },
+  { h: 62, delay: 0, color: "from-brand to-brand-light", kind: "train" },
+  { h: 78, delay: 0.08, color: "from-brand to-brand-light", kind: "eval" },
+  { h: 55, delay: 0.16, color: "from-brand to-ochre", kind: "train" },
+  { h: 88, delay: 0.24, color: "from-brand to-blue-500", kind: "eval" },
+  { h: 48, delay: 0.32, color: "from-ochre to-brand", kind: "train" },
+  { h: 70, delay: 0.4, color: "from-blue-500 to-brand", kind: "eval" },
 ]
 
 const valCurvePath = "M 20 34 L 72 30 L 124 26 L 176 21 L 228 16 L 280 11"
@@ -49,7 +49,7 @@ export function AISection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <GlassCard className="h-full border-violet-500/15 p-5 sm:p-8 md:p-10">
+            <GlassCard className="h-full border-brand/15 p-5 sm:p-8 md:p-10">
               <p className="text-sm leading-relaxed text-slate-600 sm:text-base dark:text-slate-300">{t.aiSection.lead}</p>
               <div className="mt-6 grid gap-3 sm:mt-8 sm:grid-cols-3 sm:gap-4">
                 {cards.map((c, i) => (
@@ -59,7 +59,7 @@ export function AISection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.08 }}
-                    className="rounded-xl border border-violet-500/20 bg-gradient-to-br from-violet-500/10 to-indigo-500/5 p-4 dark:border-violet-400/15"
+                    className="rounded-xl border border-brand/20 bg-gradient-to-br from-brand/10 to-brand/5 p-4 dark:border-brand-light/15"
                   >
                     <h4 className="font-[family-name:var(--font-display)] text-sm font-bold text-slate-900 dark:text-white">
                       {c.title}
@@ -70,8 +70,8 @@ export function AISection() {
               </div>
 
               <div className="mt-6 grid gap-4 sm:mt-8 sm:grid-cols-2">
-                <div className="rounded-xl border border-indigo-500/20 bg-indigo-500/5 p-4 dark:border-indigo-400/20 dark:bg-indigo-500/10">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-indigo-700 dark:text-indigo-300">
+                <div className="rounded-xl border border-brand/20 bg-brand/5 p-4 dark:border-brand-light/20 dark:bg-brand/10">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-brand dark:text-brand-light">
                     {t.aiSection.python.title}
                   </p>
                   <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">{t.aiSection.python.body}</p>
@@ -79,21 +79,21 @@ export function AISection() {
                     {t.aiSection.python.badges.map((b) => (
                       <span
                         key={b}
-                        className="rounded-md border border-violet-400/25 bg-violet-500/10 px-2 py-0.5 text-[11px] font-medium text-violet-900 dark:text-violet-100"
+                        className="rounded-md border border-brand-light/25 bg-brand/10 px-2 py-0.5 text-[11px] font-medium text-brand dark:text-brand-light"
                       >
                         {b}
                       </span>
                     ))}
                   </div>
                 </div>
-                <div className="rounded-xl border border-violet-500/20 bg-gradient-to-br from-violet-500/8 to-blue-500/5 p-4 dark:border-violet-400/15">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-violet-700 dark:text-violet-300">
+                <div className="rounded-xl border border-brand/20 bg-gradient-to-br from-brand/8 to-blue-500/5 p-4 dark:border-brand-light/15">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-brand dark:text-brand-light">
                     {t.aiSection.useCasesTitle}
                   </p>
                   <ul className="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-400">
                     {useCases.map((line) => (
                       <li key={line} className="flex gap-2">
-                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-violet-500 dark:bg-violet-400" />
+                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand dark:bg-brand-light" />
                         <span>{line}</span>
                       </li>
                     ))}
@@ -110,25 +110,25 @@ export function AISection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <GlassCard className="relative h-full min-h-0 overflow-hidden border-indigo-500/15 p-5 sm:min-h-[360px] sm:p-8 md:min-h-[380px] md:p-10">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-violet-600 dark:text-violet-400">
+            <GlassCard className="relative h-full min-h-0 overflow-hidden border-brand/15 p-5 sm:min-h-[360px] sm:p-8 md:min-h-[380px] md:p-10">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand dark:text-brand-light">
                 {t.aiSection.activity}
               </p>
               <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">{t.aiSection.activityLead}</p>
 
-              <div className="mt-4 rounded-xl border border-violet-500/15 bg-violet-500/[0.06] p-3 dark:border-violet-400/15 dark:bg-violet-500/10">
-                <p className="text-[10px] font-semibold uppercase tracking-wider text-violet-700 dark:text-violet-300">
+              <div className="mt-4 rounded-xl border border-brand/15 bg-brand/[0.06] p-3 dark:border-brand-light/15 dark:bg-brand/10">
+                <p className="text-[10px] font-semibold uppercase tracking-wider text-brand dark:text-brand-light">
                   {t.aiSection.activityPipelineTitle}
                 </p>
                 <div className="mt-3 flex snap-x snap-mandatory gap-2 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:flex-wrap sm:justify-between sm:overflow-visible">
                   {steps.map((label, i) => (
                     <div key={label} className="flex shrink-0 snap-center items-center gap-2 sm:shrink">
-                      <span className="whitespace-nowrap rounded-lg border border-violet-400/30 bg-white/80 px-2.5 py-1.5 text-[11px] font-semibold text-violet-900 shadow-sm dark:border-violet-500/25 dark:bg-slate-900/80 dark:text-violet-100">
+                      <span className="whitespace-nowrap rounded-lg border border-brand-light/30 bg-white/80 px-2.5 py-1.5 text-[11px] font-semibold text-brand shadow-sm dark:border-brand/25 dark:bg-slate-900/80 dark:text-brand-light">
                         {label}
                       </span>
                       {i < steps.length - 1 ? (
                         <span
-                          className="hidden h-px w-4 shrink-0 bg-gradient-to-r from-violet-400/50 to-indigo-400/50 sm:block sm:w-6 md:w-10"
+                          className="hidden h-px w-4 shrink-0 bg-gradient-to-r from-brand-light/50 to-brand-light/50 sm:block sm:w-6 md:w-10"
                           aria-hidden
                         />
                       ) : null}
@@ -139,18 +139,18 @@ export function AISection() {
 
               <div className="mt-4 flex flex-col gap-2 text-[11px] font-medium text-slate-600 sm:mt-5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4 dark:text-slate-400">
                 <span className="inline-flex items-center gap-2">
-                  <span className="h-2.5 w-2.5 rounded-sm bg-gradient-to-br from-violet-600 to-fuchsia-500 shadow-sm shadow-violet-500/30" />
+                  <span className="h-2.5 w-2.5 rounded-sm bg-gradient-to-br from-brand to-ochre shadow-sm shadow-brand/30" />
                   {t.aiSection.activityTrain}
                 </span>
                 <span className="inline-flex items-center gap-2">
-                  <span className="h-2.5 w-2.5 rounded-sm bg-gradient-to-br from-indigo-600 to-blue-500 shadow-sm shadow-indigo-500/30" />
+                  <span className="h-2.5 w-2.5 rounded-sm bg-gradient-to-br from-brand to-blue-500 shadow-sm shadow-brand/30" />
                   {t.aiSection.activityVal}
                 </span>
                 <span className="text-slate-500 dark:text-slate-500">· {t.aiSection.activityBarsLegend}</span>
               </div>
 
-              <div className="relative mt-4 rounded-xl border border-violet-500/10 bg-slate-50/50 p-2.5 sm:mt-5 sm:p-3 dark:border-white/5 dark:bg-slate-950/40">
-                <p className="mb-0.5 text-[10px] font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
+              <div className="relative mt-4 rounded-xl border border-brand/10 bg-slate-50/50 p-2.5 sm:mt-5 sm:p-3 dark:border-white/5 dark:bg-slate-950/40">
+                <p className="mb-0.5 text-[10px] font-semibold uppercase tracking-wider text-brand dark:text-brand-light">
                   {t.aiSection.activityCurveLabel}
                 </p>
                 <p className="mb-2 text-[11px] leading-snug text-slate-500 dark:text-slate-500">{t.aiSection.activityCurveCaption}</p>
@@ -219,7 +219,7 @@ export function AISection() {
 
               <div className="mt-4 overflow-x-auto rounded-xl border border-slate-200/80 dark:border-white/10">
                 <table className="w-full min-w-[260px] border-collapse text-left text-[11px] sm:text-xs">
-                  <caption className="border-b border-slate-200/80 px-3 py-2 text-left text-[10px] font-semibold uppercase tracking-wider text-violet-700 dark:border-white/10 dark:text-violet-300">
+                  <caption className="border-b border-slate-200/80 px-3 py-2 text-left text-[10px] font-semibold uppercase tracking-wider text-brand dark:border-white/10 dark:text-brand-light">
                     {t.aiSection.activityWeekTitle}
                   </caption>
                   <thead>
@@ -236,10 +236,10 @@ export function AISection() {
                         className="border-b border-slate-100/90 odd:bg-white/50 even:bg-slate-50/40 dark:border-white/5 dark:odd:bg-transparent dark:even:bg-slate-900/30"
                       >
                         <td className="px-2 py-1.5 pl-3 font-medium text-slate-700 sm:px-3 dark:text-slate-200">{periods[i]}</td>
-                        <td className="px-2 py-1.5 font-[family-name:var(--font-display)] text-violet-700 sm:px-3 dark:text-violet-300">
+                        <td className="px-2 py-1.5 font-[family-name:var(--font-display)] text-brand sm:px-3 dark:text-brand-light">
                           {row.train}
                         </td>
-                        <td className="px-2 py-1.5 pr-3 font-[family-name:var(--font-display)] text-indigo-700 sm:px-3 dark:text-indigo-300">
+                        <td className="px-2 py-1.5 pr-3 font-[family-name:var(--font-display)] text-brand sm:px-3 dark:text-brand-light">
                           {row.ev}
                         </td>
                       </tr>
@@ -255,12 +255,12 @@ export function AISection() {
                     initial={{ opacity: 0, y: 8 }}
                     animate={inView ? { opacity: 1, y: 0 } : {}}
                     transition={{ delay: 0.5 + i * 0.08 }}
-                    className="rounded-lg border border-violet-500/15 bg-violet-500/5 px-2 py-3 text-center dark:border-violet-400/15 dark:bg-violet-500/10"
+                    className="rounded-lg border border-brand/15 bg-brand/5 px-2 py-3 text-center dark:border-brand-light/15 dark:bg-brand/10"
                   >
                     <p className="text-[10px] font-medium uppercase tracking-wide text-slate-500 dark:text-slate-400">
                       {blk.label}
                     </p>
-                    <p className="mt-1 font-[family-name:var(--font-display)] text-base font-bold text-violet-700 sm:text-lg dark:text-violet-200">
+                    <p className="mt-1 font-[family-name:var(--font-display)] text-base font-bold text-brand sm:text-lg dark:text-brand-light">
                       {blk.value}
                     </p>
                   </motion.div>

@@ -1,5 +1,71 @@
 export const projects = [
   {
+    id: "sommeil-eog-ia",
+    title: "DeepSleep AI (Sommeil EOG)",
+    titleFr: "DeepSleep AI (Sommeil EOG)",
+    domain: "ai",
+    categoryKey: "analytics",
+    description:
+      "Sleep stage classification from EOG signals (CNN/Bi-LSTM & CNN-only), OpenVINO acceleration, and a clinical DeepSleep AI app (Next.js + FastAPI / Streamlit). 1st prize — best deep learning project at licence level (FSBM).",
+    descriptionFr:
+      "Classification des stades du sommeil à partir du signal EOG (CNN/Bi-LSTM & CNN pur), accélération OpenVINO, et app clinique DeepSleep AI (Next.js + FastAPI / Streamlit). 1er prix — meilleur projet deep learning niveau licence (FSBM).",
+    stack: ["Python", "TensorFlow", "OpenVINO", "Next.js", "FastAPI", "MNE"],
+    github: "https://github.com/HatimRais",
+    demo: "https://deepsleepai.streamlit.app/",
+    metrics: [
+      { label: "Sleep stages", labelFr: "Stades du sommeil", value: "5" },
+      { label: "Best accuracy", labelFr: "Meilleure accuracy", value: "91.6%" },
+      { label: "Award", labelFr: "Récompense", value: "1st / 1er prix FSBM" },
+    ],
+    resultTags: [
+      { label: "Clinical dashboard", labelFr: "Dashboard clinique" },
+      { label: "NPU / OpenVINO", labelFr: "NPU / OpenVINO" },
+    ],
+    previewFrom: "from-blue-500/30",
+    previewTo: "to-cyan-500/20",
+  },
+  {
+    id: "sicam-caftan-ai",
+    title: "SICAM — Classification IA (PFE)",
+    titleFr: "SICAM — Classification IA (PFE)",
+    domain: "ai",
+    categoryKey: "analytics",
+    description:
+      "Live computer-vision classifier for Moroccan traditional clothing: cascade TYPE (6 classes) → heritage Caftan styles (7), with image upload demo. Built with EfficientNet, scraping, and Bronze→Gold dataset pipelines.",
+    descriptionFr:
+      "Classifieur live de vision par ordinateur pour les vêtements traditionnels marocains : cascade TYPE (6 classes) → styles Caftan patrimoine (7), avec démo upload d’image. EfficientNet, scraping et pipelines Bronze→Gold.",
+    stack: ["Python", "TensorFlow", "OpenCV", "FastAPI", "EfficientNet", "Selenium"],
+    github: "https://github.com/HatimRais",
+    demo: "https://sicam-production.up.railway.app/",
+    metrics: [
+      { label: "Type accuracy", labelFr: "Accuracy type", value: "77.9%" },
+      { label: "Garment classes", labelFr: "Classes vêtement", value: "6" },
+      { label: "Heritage styles", labelFr: "Styles patrimoine", value: "7" },
+    ],
+    resultTags: [
+      { label: "Live demo", labelFr: "Démo live" },
+      { label: "PFE FSBM", labelFr: "PFE FSBM" },
+    ],
+    previewFrom: "from-violet-500/25",
+    previewTo: "to-indigo-500/20",
+  },
+  {
+    id: "sicam-labeling-platform",
+    title: "SICAM Labeling Platform",
+    titleFr: "SICAM Labeling Platform",
+    domain: "fullstack",
+    categoryKey: "web",
+    description:
+      "Collaborative labeling platform for Moroccan garment datasets: Tinder-style annotation, consensus voting, Admin / Moderator / Annotator roles, gamified badges, FR / EN / AR (RTL), analytics, and dataset export.",
+    descriptionFr:
+      "Plateforme d’annotation collaborative pour datasets de vêtements marocains : flux type Tinder, consensus, rôles Admin / Modérateur / Annotateur, badges, FR / EN / AR (RTL), analytics et export.",
+    stack: ["Laravel", "React", "Vite", "MySQL", "Tailwind CSS", "Cloudinary"],
+    github: "https://github.com/HatimRais/SICAM_Labeling_Platform",
+    demo: "https://sicam-labeling-platform.vercel.app/",
+    previewFrom: "from-amber-500/25",
+    previewTo: "to-orange-600/20",
+  },
+  {
     id: "learnhub",
     title: "LearnHub",
     titleFr: "LearnHub",
@@ -96,6 +162,22 @@ export const projects = [
     previewTo: "to-slate-600/20",
   },
   {
+    id: "sweet-delights",
+    title: "Sweet Delights Pastry Shop",
+    titleFr: "Sweet Delights Patisserie",
+    domain: "fullstack",
+    categoryKey: "web",
+    description:
+      "Multilingual Next.js showcase website for a pastry shop with FR/EN/AR localization, menu presentation, and SEO-ready page structure.",
+    descriptionFr:
+      "Site vitrine Next.js multilingue pour une patisserie avec localisation FR/EN/AR, presentation du menu et structure SEO prete.",
+    stack: ["Next.js", "React", "JavaScript", "i18n", "SEO"],
+    github: "https://github.com/HatimRais",
+    demo: "https://pastry-shop-omega.vercel.app/",
+    previewFrom: "from-rose-400/25",
+    previewTo: "to-amber-500/20",
+  },
+  {
     id: "spam-detection-demo",
     title: "Spam message classifier",
     titleFr: "Classifieur de messages spam",
@@ -141,87 +223,5 @@ export const projects = [
       { label: "Trend detection", labelFr: "Détection de tendances" },
       { label: "Exportable charts", labelFr: "Graphiques exportables" },
     ],
-  },
-  {
-    id: "sweet-delights",
-    title: "Sweet Delights Pastry Shop",
-    titleFr: "Sweet Delights Patisserie",
-    domain: "fullstack",
-    categoryKey: "web",
-    description:
-      "Multilingual Next.js showcase website for a pastry shop with FR/EN/AR localization, menu presentation, and SEO-ready page structure.",
-    descriptionFr:
-      "Site vitrine Next.js multilingue pour une patisserie avec localisation FR/EN/AR, presentation du menu et structure SEO prete.",
-    stack: ["Next.js", "React", "JavaScript", "i18n", "SEO"],
-    github: "https://github.com/HatimRais",
-    demo: "https://pastry-shop-omega.vercel.app/",
-    previewFrom: "from-rose-400/25",
-    previewTo: "to-amber-500/20",
-  },
-  {
-    id: "sicam-caftan-ai",
-    title: "SICAM Caftan AI Pipeline",
-    titleFr: "Pipeline IA SICAM Caftan",
-    domain: "ai",
-    categoryKey: "analytics",
-    description:
-      "Computer vision data pipeline for caftan style analysis including automated image scraping, labeling workflow with Google Sheets, and deep learning experimentation.",
-    descriptionFr:
-      "Pipeline de donnees vision par ordinateur pour l analyse de style caftan: scraping automatique d images, etiquetage via Google Sheets et experimentation deep learning.",
-    stack: ["Python", "Selenium", "OpenCV", "TensorFlow", "Pandas"],
-    github: "https://github.com/HatimRais",
-    demo: null,
-    metrics: [
-      { label: "Image collection", labelFr: "Collecte d images", value: "Automated" },
-      { label: "Focus", labelFr: "Cible", value: "Computer vision" },
-      { label: "Workflow", labelFr: "Workflow", value: "Scrape + label" },
-    ],
-    resultTags: [
-      { label: "Dataset pipeline", labelFr: "Pipeline dataset" },
-      { label: "Label tracking", labelFr: "Suivi des labels" },
-    ],
-    previewFrom: "from-violet-500/25",
-    previewTo: "to-indigo-500/20",
-  },
-  {
-    id: "sicam-labeling-platform",
-    title: "SICAM Labeling Platform",
-    titleFr: "SICAM Labeling Platform",
-    domain: "fullstack",
-    categoryKey: "web",
-    description:
-      "Full-stack collaborative labeling platform for Moroccan traditional clothing datasets: Tinder-style annotation, consensus voting, Admin / Moderator / Annotator roles, gamified badges, FR / EN / AR (RTL), analytics dashboard, and dataset export—with Laravel 11, React + Vite, MySQL, and Cloudinary.",
-    descriptionFr:
-      "Plateforme fullstack d’annotation collaborative pour des datasets de vêtements traditionnels marocains : flux type Tinder, vote par consensus, rôles Admin / Modérateur / Annotateur, badges gamifiés, interface FR / EN / AR (RTL), tableau de bord analytique et export de données—Laravel 11, React + Vite, MySQL et Cloudinary.",
-    stack: ["Laravel", "React", "Vite", "MySQL", "Tailwind CSS", "Cloudinary"],
-    github: "https://github.com/HatimRais",
-    demo: "https://sicam-labeling-platform.vercel.app/login",
-    previewFrom: "from-amber-500/25",
-    previewTo: "to-orange-600/20",
-  },
-  {
-    id: "sommeil-eog-ia",
-    title: "Sommeil EOG IA",
-    titleFr: "Sommeil EOG IA",
-    domain: "ai",
-    categoryKey: "analytics",
-    description:
-      "Sleep stage classification pipeline from EOG signals with CNN/Bi-LSTM and CNN-only variants, OpenVINO optimization, and a Streamlit clinical dashboard.",
-    descriptionFr:
-      "Pipeline de classification des stades du sommeil a partir du signal EOG avec variantes CNN/Bi-LSTM et CNN pur, optimisation OpenVINO et dashboard clinique Streamlit.",
-    stack: ["Python", "TensorFlow", "OpenVINO", "Streamlit", "MNE"],
-    github: "https://github.com/HatimRais",
-    demo: "https://deepsleepai.streamlit.app/",
-    metrics: [
-      { label: "Sleep stages", labelFr: "Stades du sommeil", value: "5" },
-      { label: "Best accuracy", labelFr: "Meilleure accuracy", value: "91.6%" },
-      { label: "NPU throughput", labelFr: "Debit NPU", value: "5650 ep/s" },
-    ],
-    resultTags: [
-      { label: "Clinical dashboard", labelFr: "Dashboard clinique" },
-      { label: "Hardware optimization", labelFr: "Optimisation materielle" },
-    ],
-    previewFrom: "from-blue-500/30",
-    previewTo: "to-cyan-500/20",
   },
 ]

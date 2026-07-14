@@ -4,10 +4,10 @@ import { useLanguage } from "../../context/LanguageContext"
 import { GlassCard } from "../ui/GlassCard"
 import { SectionHeading } from "../ui/SectionHeading"
 
-const studies = ["learnhub", "perfume"]
+const studies = ["deepsleep", "sicam"]
 
 function StepIcon({ type }) {
-  const c = "h-5 w-5 text-violet-600 dark:text-violet-400"
+  const c = "h-5 w-5 text-brand dark:text-brand-light"
   switch (type) {
     case "target":
       return (
@@ -49,11 +49,11 @@ export function CaseStudies() {
   const copy = caseStudiesDetail[lang] || caseStudiesDetail.en
 
   return (
-    <section id="case-studies" className="scroll-mt-24 px-4 py-20 md:px-6 md:py-28">
-      <div className="mx-auto max-w-6xl">
+    <section id="case-studies" className="section-anchor px-3 py-14 sm:px-4 sm:py-20 md:px-6 md:py-28">
+      <div className="mx-auto min-w-0 max-w-6xl">
         <SectionHeading eyebrow={t.caseStudies.subtitle} title={t.caseStudies.title} />
 
-        <div className="space-y-24">
+        <div className="space-y-14 sm:space-y-20 md:space-y-24">
           {studies.map((studyId, studyIndex) => {
             const data = copy[studyId]
             return (
@@ -63,23 +63,24 @@ export function CaseStudies() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, delay: studyIndex * 0.05 }}
+                className="min-w-0"
               >
-                <div className="mb-10 flex flex-col gap-2 border-b border-slate-200/80 pb-6 dark:border-white/10 md:flex-row md:items-end md:justify-between">
-                  <div>
-                    <h3 className="font-[family-name:var(--font-display)] text-2xl font-bold text-slate-900 dark:text-white md:text-3xl">
+                <div className="mb-8 flex flex-col gap-2 border-b border-slate-200/80 pb-5 dark:border-white/10 sm:mb-10 sm:pb-6 md:flex-row md:items-end md:justify-between">
+                  <div className="min-w-0">
+                    <h3 className="break-words font-[family-name:var(--font-display)] text-xl font-bold text-slate-900 dark:text-white sm:text-2xl md:text-3xl">
                       {data.name}
                     </h3>
-                    <p className="mt-1 text-sm font-medium text-violet-600 dark:text-violet-400">{data.tag}</p>
+                    <p className="mt-1 break-phone text-sm font-medium text-brand dark:text-brand-light">{data.tag}</p>
                   </div>
                 </div>
 
                 <div className="relative">
                   <div
-                    className="absolute left-[1.15rem] top-8 bottom-8 hidden w-px bg-gradient-to-b from-violet-500/50 via-fuchsia-500/30 to-cyan-500/50 md:block"
+                    className="absolute left-[1.15rem] top-8 bottom-8 hidden w-px bg-gradient-to-b from-brand/50 via-ochre/30 to-brand-light/50 md:block"
                     aria-hidden
                   />
 
-                  <ol className="space-y-8">
+                  <ol className="space-y-5 sm:space-y-8">
                     {caseStudySteps.map(({ key, icon }, i) => (
                       <motion.li
                         key={key}
@@ -87,17 +88,17 @@ export function CaseStudies() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true, margin: "-40px" }}
                         transition={{ delay: i * 0.06 }}
-                        className="relative md:pl-24"
+                        className="relative min-w-0 md:pl-24"
                       >
-                        <div className="absolute left-0 top-0 hidden h-10 w-10 items-center justify-center rounded-xl border border-violet-500/30 bg-white/90 shadow-md shadow-violet-500/10 dark:border-violet-400/25 dark:bg-slate-900/90 md:flex">
+                        <div className="absolute left-0 top-0 hidden h-10 w-10 items-center justify-center rounded-xl border border-brand/30 bg-white/90 shadow-md shadow-brand/10 dark:border-brand-light/25 dark:bg-slate-900/90 md:flex">
                           <StepIcon type={icon} />
                         </div>
-                        <GlassCard className="p-6 md:p-8">
+                        <GlassCard className="p-4 sm:p-6 md:p-8">
                           <div className="mb-3 flex items-center gap-3 md:hidden">
-                            <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-violet-500/30 bg-violet-500/5 dark:border-violet-400/25">
+                            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-brand/30 bg-brand/5 dark:border-brand-light/25">
                               <StepIcon type={icon} />
                             </span>
-                            <h4 className="font-[family-name:var(--font-display)] text-lg font-bold text-slate-900 dark:text-white">
+                            <h4 className="min-w-0 break-words font-[family-name:var(--font-display)] text-base font-bold text-slate-900 dark:text-white sm:text-lg">
                               {t.caseStudies.steps[key]}
                             </h4>
                           </div>
@@ -106,28 +107,28 @@ export function CaseStudies() {
                           </h4>
 
                           {key === "architecture" ? (
-                            <ul className="space-y-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                            <ul className="space-y-3 break-phone text-sm leading-relaxed text-slate-600 dark:text-slate-400">
                               <li>
-                                <span className="font-semibold text-violet-600 dark:text-violet-400">
+                                <span className="font-semibold text-brand dark:text-brand-light">
                                   {t.caseStudies.archLabels.fe}{" "}
                                 </span>
                                 {data.archFe}
                               </li>
                               <li>
-                                <span className="font-semibold text-violet-600 dark:text-violet-400">
+                                <span className="font-semibold text-brand dark:text-brand-light">
                                   {t.caseStudies.archLabels.be}{" "}
                                 </span>
                                 {data.archBe}
                               </li>
                               <li>
-                                <span className="font-semibold text-violet-600 dark:text-violet-400">
+                                <span className="font-semibold text-brand dark:text-brand-light">
                                   {t.caseStudies.archLabels.db}{" "}
                                 </span>
                                 {data.archDb}
                               </li>
                             </ul>
                           ) : (
-                            <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                            <p className="break-phone text-sm leading-relaxed text-slate-600 dark:text-slate-400">
                               {data[key]}
                             </p>
                           )}

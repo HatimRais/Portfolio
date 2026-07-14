@@ -22,7 +22,7 @@ export function Skills() {
   const { t } = useLanguage()
 
   return (
-    <section id="skills" className="scroll-mt-24 px-4 py-20 md:px-6 md:py-28">
+    <section id="skills" className="section-anchor px-3 py-14 sm:px-4 sm:py-20 md:px-6 md:py-28">
       <div className="mx-auto max-w-6xl">
         <SectionHeading eyebrow={t.skills.subtitle} title={t.skills.title} />
 

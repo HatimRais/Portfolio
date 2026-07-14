@@ -62,7 +62,7 @@ export function Navbar() {
   }, [mobileOpen])
 
   const topLinkClass =
-    "inline-flex shrink-0 items-center gap-0.5 rounded-lg px-2 py-2 text-[11px] font-medium text-slate-600 transition hover:bg-violet-500/10 hover:text-violet-700 dark:text-slate-300 dark:hover:bg-violet-500/15 dark:hover:text-violet-300 lg:px-2.5 lg:text-xs"
+    "inline-flex shrink-0 items-center gap-0.5 rounded-lg px-2 py-2 text-[11px] font-medium text-slate-600 transition hover:bg-brand/10 hover:text-brand dark:text-slate-300 dark:hover:bg-brand/15 dark:hover:text-brand-light lg:px-2.5 lg:text-xs"
 
   const toggleDropdown = (id) => {
     setOpenDropdown((cur) => (cur === id ? null : id))
@@ -73,21 +73,19 @@ export function Navbar() {
       initial={{ y: -24, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.45 }}
-      className="fixed left-0 right-0 top-0 z-50 px-3 pt-[max(0.75rem,env(safe-area-inset-top))] sm:px-4 sm:pt-4 md:px-6"
+      className="fixed left-0 right-0 top-0 z-50 safe-px px-2 pt-[max(0.5rem,env(safe-area-inset-top))] sm:px-4 sm:pt-3 md:px-6"
     >
       <nav
         ref={navRef}
-        className="mx-auto flex min-w-0 max-w-6xl flex-nowrap items-center justify-between gap-2 rounded-2xl border border-slate-200/70 bg-white/75 px-2 py-2.5 shadow-lg shadow-violet-500/5 backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/70 dark:shadow-violet-500/10 sm:gap-3 sm:px-3 sm:py-3 md:px-4"
+        className="mx-auto flex min-w-0 max-w-6xl flex-nowrap items-center justify-between gap-2 border-b border-ink/10 bg-paper/95 px-2 py-2.5 backdrop-blur-md dark:border-paper/10 dark:bg-surface-dark/95 sm:gap-3 sm:px-3 sm:py-3 md:px-4"
         aria-label="Main"
       >
         <button
           type="button"
           onClick={() => scrollTo("home")}
-          className="min-w-0 shrink font-[family-name:var(--font-display)] text-base font-bold tracking-tight text-slate-900 sm:text-lg dark:text-white"
+          className="min-w-0 max-w-[42vw] truncate shrink font-[family-name:var(--font-display)] text-base font-bold tracking-tight text-ink sm:max-w-none sm:text-lg dark:text-paper"
         >
-          <span className="bg-gradient-to-r from-violet-600 to-cyan-600 bg-clip-text text-transparent dark:from-violet-400 dark:to-cyan-400">
-            Hatim Rais
-          </span>
+          Hatim Rais
         </button>
 
         <ul className="hidden list-none flex-row flex-wrap items-center justify-end gap-x-0.5 md:flex lg:flex-nowrap">
@@ -99,7 +97,7 @@ export function Navbar() {
           <li className="relative shrink-0">
             <button
               type="button"
-              className={`${topLinkClass} ${openDropdown === "profile" ? "bg-violet-500/10 text-violet-700 dark:text-violet-300" : ""}`}
+              className={`${topLinkClass} ${openDropdown === "profile" ? "bg-brand/10 text-brand dark:text-brand-light" : ""}`}
               aria-expanded={openDropdown === "profile"}
               aria-haspopup="true"
               onClick={() => toggleDropdown("profile")}
@@ -117,7 +115,7 @@ export function Navbar() {
           <li className="relative shrink-0">
             <button
               type="button"
-              className={`${topLinkClass} ${openDropdown === "more" ? "bg-violet-500/10 text-violet-700 dark:text-violet-300" : ""}`}
+              className={`${topLinkClass} ${openDropdown === "more" ? "bg-brand/10 text-brand dark:text-brand-light" : ""}`}
               aria-expanded={openDropdown === "more"}
               aria-haspopup="true"
               onClick={() => toggleDropdown("more")}
@@ -148,9 +146,9 @@ export function Navbar() {
             <button
               type="button"
               onClick={() => setLang("en")}
-              className={`rounded-md px-2 py-1 text-[11px] font-semibold transition sm:rounded-lg sm:px-2.5 sm:text-xs ${
+              className={`min-h-11 min-w-11 rounded-md px-3 py-2 text-xs font-semibold transition sm:rounded-lg ${
                 lang === "en"
-                  ? "bg-white text-violet-700 shadow-sm dark:bg-slate-700 dark:text-violet-300"
+                  ? "bg-white text-brand shadow-sm dark:bg-slate-700 dark:text-brand-light"
                   : "text-slate-500 dark:text-slate-400"
               }`}
             >
@@ -159,9 +157,9 @@ export function Navbar() {
             <button
               type="button"
               onClick={() => setLang("fr")}
-              className={`rounded-md px-2 py-1 text-[11px] font-semibold transition sm:rounded-lg sm:px-2.5 sm:text-xs ${
+              className={`min-h-11 min-w-11 rounded-md px-3 py-2 text-xs font-semibold transition sm:rounded-lg ${
                 lang === "fr"
-                  ? "bg-white text-violet-700 shadow-sm dark:bg-slate-700 dark:text-violet-300"
+                  ? "bg-white text-brand shadow-sm dark:bg-slate-700 dark:text-brand-light"
                   : "text-slate-500 dark:text-slate-400"
               }`}
             >
@@ -172,7 +170,7 @@ export function Navbar() {
           <button
             type="button"
             onClick={toggleTheme}
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-slate-200/80 bg-slate-100/80 text-slate-700 transition hover:border-violet-400/50 hover:text-violet-700 sm:h-10 sm:w-10 sm:rounded-xl dark:border-white/10 dark:bg-slate-800/80 dark:text-slate-200 dark:hover:text-violet-300"
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-slate-200/80 bg-slate-100/80 text-slate-700 transition hover:border-brand-light/50 hover:text-brand dark:border-white/10 dark:bg-slate-800/80 dark:text-slate-200 dark:hover:text-brand-light"
             aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
           >
             {theme === "dark" ? (
@@ -184,7 +182,7 @@ export function Navbar() {
 
           <button
             type="button"
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-slate-200/80 bg-slate-100/80 md:hidden sm:h-10 sm:w-10 sm:rounded-xl dark:border-white/10 dark:bg-slate-800/80"
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-slate-200/80 bg-slate-100/80 md:hidden dark:border-white/10 dark:bg-slate-800/80"
             onClick={() => setMobileOpen((o) => !o)}
             aria-expanded={mobileOpen}
             aria-label="Menu"
@@ -225,8 +223,8 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ type: "spring", stiffness: 420, damping: 32 }}
-            className="fixed left-3 right-3 z-[55] max-h-[min(calc(100dvh-5.25rem-env(safe-area-inset-top)-env(safe-area-inset-bottom)),82vh)] overflow-y-auto overscroll-contain rounded-2xl border border-slate-200/80 bg-white/98 shadow-2xl dark:border-white/10 dark:bg-slate-950/98 md:hidden"
-            style={{ top: "max(4.75rem, calc(env(safe-area-inset-top) + 3.75rem))" }}
+            className="fixed left-3 right-3 z-[55] max-h-[min(calc(100dvh-5.5rem-env(safe-area-inset-top)-env(safe-area-inset-bottom)),85dvh)] overflow-y-auto overscroll-contain rounded-2xl border border-slate-200/80 bg-white/98 shadow-2xl dark:border-white/10 dark:bg-slate-950/98 md:hidden"
+            style={{ top: "max(5rem, calc(env(safe-area-inset-top) + 4rem))" }}
             role="dialog"
             aria-modal="true"
             aria-label={t.nav.mobileMenuTitle}
@@ -235,7 +233,7 @@ export function Navbar() {
               <button
                 type="button"
                 onClick={() => scrollTo("home")}
-                className="w-full rounded-xl px-4 py-3 text-left text-sm font-medium text-slate-700 hover:bg-violet-500/10 dark:text-slate-200"
+                className="min-h-12 w-full rounded-xl px-4 py-3.5 text-left text-sm font-medium text-slate-700 hover:bg-brand/10 dark:text-slate-200"
               >
                 {t.nav.home}
               </button>
@@ -251,7 +249,7 @@ export function Navbar() {
               <button
                 type="button"
                 onClick={() => scrollTo("projects")}
-                className="w-full rounded-xl px-4 py-3 text-left text-sm font-medium text-slate-700 hover:bg-violet-500/10 dark:text-slate-200"
+                className="min-h-12 w-full rounded-xl px-4 py-3.5 text-left text-sm font-medium text-slate-700 hover:bg-brand/10 dark:text-slate-200"
               >
                 {t.nav.projects}
               </button>
@@ -266,7 +264,7 @@ export function Navbar() {
               <button
                 type="button"
                 onClick={() => scrollTo("ai")}
-                className="w-full rounded-xl px-4 py-3 text-left text-sm font-medium text-slate-700 hover:bg-violet-500/10 dark:text-slate-200"
+                className="min-h-12 w-full rounded-xl px-4 py-3.5 text-left text-sm font-medium text-slate-700 hover:bg-brand/10 dark:text-slate-200"
               >
                 {t.nav.ai}
               </button>
@@ -276,14 +274,14 @@ export function Navbar() {
               <button
                 type="button"
                 onClick={() => scrollTo("ai-action")}
-                className="w-full rounded-xl px-4 py-2.5 pl-8 text-left text-sm text-slate-600 hover:bg-violet-500/10 dark:text-slate-300"
+                className="w-full rounded-xl px-4 py-2.5 pl-8 text-left text-sm text-slate-600 hover:bg-brand/10 dark:text-slate-300"
               >
                 {t.nav.aiAction}
               </button>
               <button
                 type="button"
                 onClick={() => scrollTo("contact")}
-                className="w-full rounded-xl px-4 py-3 text-left text-sm font-medium text-slate-700 hover:bg-violet-500/10 dark:text-slate-200"
+                className="min-h-12 w-full rounded-xl px-4 py-3.5 text-left text-sm font-medium text-slate-700 hover:bg-brand/10 dark:text-slate-200"
               >
                 {t.nav.contact}
               </button>
@@ -315,7 +313,7 @@ function DropdownPanel({ open, items, t, onPick }) {
               key={id}
               type="button"
               role="menuitem"
-              className="block w-full px-3 py-2 text-left text-xs font-medium text-slate-700 hover:bg-violet-500/10 dark:text-slate-200"
+              className="block w-full px-3 py-2 text-left text-xs font-medium text-slate-700 hover:bg-brand/10 dark:text-slate-200"
               onClick={() => onPick(id)}
             >
               {t.nav[key]}
@@ -333,7 +331,7 @@ function MobileGroup({ title, open, onToggle, links, t, onPick }) {
       <button
         type="button"
         onClick={onToggle}
-        className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-left text-sm font-medium text-slate-700 hover:bg-violet-500/10 dark:text-slate-200"
+        className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-left text-sm font-medium text-slate-700 hover:bg-brand/10 dark:text-slate-200"
         aria-expanded={open}
       >
         {title}
@@ -353,7 +351,7 @@ function MobileGroup({ title, open, onToggle, links, t, onPick }) {
                   <button
                     type="button"
                     onClick={() => onPick(id)}
-                    className="w-full rounded-lg px-6 py-2.5 text-left text-sm text-slate-600 hover:bg-violet-500/10 dark:text-slate-300"
+                    className="w-full rounded-lg px-6 py-2.5 text-left text-sm text-slate-600 hover:bg-brand/10 dark:text-slate-300"
                   >
                     {t.nav[key]}
                   </button>
