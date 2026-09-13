@@ -11,7 +11,7 @@ export const projects = [
       "Classification des stades du sommeil à partir du signal EOG (CNN/Bi-LSTM & CNN pur), accélération OpenVINO, et app clinique DeepSleep AI (Next.js + FastAPI / Streamlit). 1er prix — meilleur projet deep learning niveau licence (FSBM).",
     stack: ["Python", "TensorFlow", "OpenVINO", "Next.js", "FastAPI", "MNE"],
     github: "https://github.com/HatimRais",
-    demo: "https://deepsleepai.streamlit.app/",
+    demo: "https://sommeileogia-production.up.railway.app/",
     metrics: [
       { label: "Sleep stages", labelFr: "Stades du sommeil", value: "5" },
       { label: "Best accuracy", labelFr: "Meilleure accuracy", value: "91.6%" },
