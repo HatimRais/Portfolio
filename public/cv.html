@@ -210,12 +210,26 @@
         .page {
           margin: 0;
           max-width: none;
-          padding: 0.45in 0.55in;
+          padding: 0.32in 0.5in;
           box-shadow: none;
         }
         a {
           color: inherit;
           text-decoration: none;
+        }
+        h2 {
+          margin: 12px 0 6px;
+          break-after: avoid;
+          page-break-after: avoid;
+        }
+        .job {
+          margin-bottom: 9px;
+          break-inside: avoid;
+          page-break-inside: avoid;
+        }
+        .projects-section {
+          break-before: page;
+          page-break-before: always;
         }
       }
 
@@ -362,9 +376,19 @@
             POO, bases de données relationnelles, frameworks web, architecture client/serveur.
           </p>
         </div>
+
+        <div class="job">
+          <div class="job-head">
+            <h3 class="job-title">
+              Baccalauréat — Sciences Physiques (Physique-Chimie) —
+              <span class="job-org">Lycée Youssef Ibn Tachfine</span>
+            </h3>
+            <span class="job-date">2021 · Mention Assez bien</span>
+          </div>
+        </div>
       </section>
 
-      <section>
+      <section class="projects-section">
         <h2>Projets sélectionnés</h2>
 
         <div class="project">
